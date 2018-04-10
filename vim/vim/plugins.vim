@@ -23,6 +23,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'fatih/vim-go'
+Plug 'tomlion/vim-solidity'
 
 call plug#end()
 
