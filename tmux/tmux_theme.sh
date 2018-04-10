@@ -1,9 +1,5 @@
 # http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
 
-# panes
-set -g pane-border-fg black
-set -g pane-active-border-fg brightred
-
 ## Status bar design
 # status line
 set -g status-justify left
@@ -54,10 +50,11 @@ setw -g mode-bg colour238
 # }
 # The panes {
 
-set -g pane-border-bg colour235
-set -g pane-border-fg colour238
-set -g pane-active-border-bg colour236
+# set -g pane-border-bg colour235
+# set -g pane-border-fg colour238
+# set -g pane-active-border-bg colour236
 set -g pane-active-border-fg colour51
+set -g pane-border-fg colour238
 
 # }
 # The statusbar {
