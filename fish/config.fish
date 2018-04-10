@@ -18,3 +18,13 @@ function :qall
     tmux kill-window
 end
 
+function gti
+    git $argv[1..-1]
+end
+
+
+function goplay
+    set -l dir "/tmp/goplay"(date +%N)
+    mkdir -p $dir
+    vim $dir/main.go
+end
