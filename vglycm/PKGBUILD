@@ -1,0 +1,79 @@
+pkgname='vglycm'
+
+pkgver=2296.45502e51
+pkgver() {
+  cd "YouCompleteMe" || exit
+  echo "$(git rev-list --count master).$(git rev-parse --short master)"
+}
+
+pkgrel=1
+pkgdesc="A code-completion engine for Vim"
+
+arch=('i686' 'x86_64')
+url='http://valloric.github.com/YouCompleteMe/'
+license=('GPL3')
+depends=('boost' 'boost-libs' 'nodejs' 'python' 'python2'  'vim' 'clang')
+makedepends=('cmake' 'git' 'go' 'make' 'npm')
+source=("git://github.com/Valloric/YouCompleteMe")
+md5sums=('SKIP')
+install=install
+
+prepare() {
+    msg2 'Setting up Git submodules...'
+    cd "$srcdir/YouCompleteMe" || exit
+    git submodule update --init --recursive
+}
+
+build() {
+    msg2 'Building ycmd...'
+    mkdir -p "$srcdir/ycmd_build"
+    cd "$srcdir/ycmd_build" || exit
+    cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON .\
+        "$srcdir/YouCompleteMe/third_party/ycmd/cpp"
+    cmake --build . --target ycm_core --config Release
+
+
+    msg2 'Building Gocode completer...'
+    cd "$srcdir/YouCompleteMe/third_party/ycmd/third_party/gocode" || exit
+    pwd
+    go build
+    cd "$srcdir/YouCompleteMe/third_party/ycmd/third_party/godef" || exit
+    pwd
+    go build
+
+
+    msg2 'Building Tern completer...'
+    cd "$srcdir/YouCompleteMe/third_party/ycmd/third_party/tern_runtime" || exit
+    pwd
+    npm install --production --python=python2
+}
+
+package() {
+    mkdir -p "$pkgdir/usr/share/vim/vimfiles/third_party/ycmd/third_party"
+
+    cp -r "$srcdir/YouCompleteMe/"{autoload,doc,plugin,python} \
+        "$pkgdir/usr/share/vim/vimfiles"
+    cp -r "$srcdir/YouCompleteMe/third_party/"{pythonfutures,requests-futures} \
+        "$pkgdir/usr/share/vim/vimfiles/third_party"
+    cp -r "$srcdir/YouCompleteMe/third_party/ycmd/"{ycmd,ycm_core.so,CORE_VERSION,cpp,clang_includes} \
+        "$pkgdir/usr/share/vim/vimfiles/third_party/ycmd"
+    cp -r "$srcdir/YouCompleteMe/third_party/ycmd/third_party/"{bottle,frozendict,JediHTTP,python-future,requests,waitress} \
+        "$pkgdir/usr/share/vim/vimfiles/third_party/ycmd/third_party"
+
+
+    mkdir -p "$pkgdir/usr/share/vim/vimfiles/third_party/ycmd/third_party/gocode"
+    mkdir -p "$pkgdir/usr/share/vim/vimfiles/third_party/ycmd/third_party/godef"
+
+    cp "$srcdir/YouCompleteMe/third_party/ycmd/third_party/gocode/gocode" \
+      "$pkgdir/usr/share/vim/vimfiles/third_party/ycmd/third_party/gocode/gocode"
+
+    cp "$srcdir/YouCompleteMe/third_party/ycmd/third_party/godef/godef" \
+      "$pkgdir/usr/share/vim/vimfiles/third_party/ycmd/third_party/godef/godef"
+
+
+    cp -r "$srcdir/YouCompleteMe/third_party/ycmd/third_party/tern_runtime" \
+      "$pkgdir/usr/share/vim/vimfiles/third_party/ycmd/third_party"
+
+    find "$pkgdir" -name .git -exec rm -fr {} +
+    rm -rf "$pkgdir/usr/share/vim/vimfiles/third_party/ycmd/ycmd/tests"
+}
