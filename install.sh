@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z `grep doza-daniel/dotfiles.git .git/config` ]; then
+if [ -z `grep doza-daniel/dotfiles .git/config` ]; then
     echo "Move to the root git directory!"
     exit 1
 fi
