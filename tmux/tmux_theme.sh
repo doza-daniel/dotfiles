@@ -66,7 +66,7 @@ set -g status-attr dim
 set -g status-left ' #(whoami)@#H - #S: '
 set -g status-right '#[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S '
 set -g status-right-length 50
-set -g status-left-length 20
+set -g status-left-length 50
 
 setw -g window-status-current-fg colour81
 setw -g window-status-current-bg colour238
