@@ -35,9 +35,10 @@ bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym Mod1+space exec rofi -show run -lines 4 -padding 10 -font "Deja Vu Sans Mono 20" -b colour10 -theme Arc-Dark
+bindsym Mod1+space exec rofi -show run -lines 4 -padding 10 -font "Deja Vu Sans Mono 20"
 # bindsym $mod+d exec dmenu_run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -168,18 +169,32 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
+####################
+#      Borders     #
+####################
+# class                 border  backgr. text    indicator child_border
+client.focused          #000000 #000000 #ffffff #2e9ef4   #000000
+client.focused_inactive #000000 #000000 #7c7c7c #484e50   #222222
+client.unfocused        #000000 #000000 #7c7c7c #484e50   #222222
+client.placeholder      #000000 #000000 #7c7c7c #484e50   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+
+client.background       #ffffff
 
 hide_edge_borders both
-default_border pixel 3
+# default_border pixel 3
+default_border normal 3
+####################
 
-gaps inner 10
-gaps outer 10
-bindsym $mod+g gaps inner current set 10; gaps outer current set 10
+
+# gaps inner 10
+# gaps outer 10
+bindsym $mod+g gaps inner current set 30; gaps outer current set 15
 bindsym $mod+Shift+g gaps inner current set 0; gaps outer current set 0
 
-exec_always --no-startup-id feh --bg-scale /home/daniel/Pictures/Wallpapers/mountains.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/fav_galaxy_photos.jpg
 
-exec --no-startup-id compton --xrender-sync
+exec --no-startup-id compton --xrender-sync --config ~/.config/compton.conf -b
 
 # volume controls
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
