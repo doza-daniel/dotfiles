@@ -22,10 +22,20 @@ syntax on
 set t_Co=256
 set background=dark
 colorscheme jellybeans
-set colorcolumn=80
-
+hi CursorLine cterm=bold,underline term=bold,underline ctermbg=none
+" don't use background for tab characters
+hi SpecialKey ctermbg=none ctermfg=244
+" use the background from terminal
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+hi LineNr ctermbg=none
 highlight ColorColumn ctermbg=234
+" autocomplete menu
+hi Pmenu ctermbg=black ctermfg=white gui=bold
+set cot="menuone"
+" search
 hi Search ctermbg=165 ctermfg=232
+
 
 " Display trailing spaces
 set list listchars=trail:·,tab:>-
@@ -85,9 +95,6 @@ autocmd FileType make set nolist
 " No delay going in normal mode
 set ttimeoutlen=10
 
-" Autocomplete menu
-hi Pmenu ctermbg=black ctermfg=white gui=bold
-set cot="menuone"
 
 nmap <Leader>t <ESC>:NERDTreeToggle<CR>
 
