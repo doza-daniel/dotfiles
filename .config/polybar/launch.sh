@@ -10,6 +10,5 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 
 polybar example -c ~/.config/polybar/config
 
-feh --bg-scale ~/Pictures/Wallpapers/mountains.jpg
 
 echo "Bars launched..."
