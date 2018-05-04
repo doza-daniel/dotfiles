@@ -69,7 +69,7 @@ type = internal/date
 label = %date% %time%
 interval = 1
 
-time = " %I:%M%p
+time = " %I:%M%p"
 date = "%a, %b %d, %Y"
 
 [module/battery]
