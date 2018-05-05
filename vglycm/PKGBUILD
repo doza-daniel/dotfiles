@@ -1,6 +1,6 @@
 pkgname='vglycm'
 
-pkgver=2313.84554d21
+pkgver=2339.c027b16c
 pkgver() {
   cd "YouCompleteMe" || exit
   echo "$(git rev-list --count master).$(git rev-parse --short master)"
