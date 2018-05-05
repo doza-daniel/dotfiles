@@ -1,4 +1,4 @@
-pkgname='danielvim'
+pkgname='vglvim'
 provides=('vim')
 pkgver=8309.d60e0a1d2
 pkgrel=1
