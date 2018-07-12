@@ -22,6 +22,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'fatih/vim-go'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'tomlion/vim-solidity'
 
 call plug#end()
@@ -84,3 +85,9 @@ let g:go_highlight_build_constraints = 1
 
 let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> C-wh :TmuxNavigateLeft<cr>
+nnoremap <silent> C-wj :TmuxNavigateDown<cr>
+nnoremap <silent> C-wk :TmuxNavigateUp<cr>
+nnoremap <silent> C-wl :TmuxNavigateRight<cr>
