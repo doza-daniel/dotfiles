@@ -30,7 +30,8 @@ font pango:Deja Vu Sans Mono 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec st -t "Suckless Terminal" -x 75 -e bash -c "tmux attach -t base || tmux new -s base"
+bindsym $mod+r exec st -t "Ranger" -x 75 -e bash -c ranger
+bindsym $mod+Shift+Return exec st -t "Suckless Terminal" -x 75 -e bash -c tmux
 bindsym $mod+Return exec st -t "Suckless Terminal" -x 75
 
 # kill focused window
@@ -62,6 +63,8 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+bindsym $mod+m exec /home/daniel/.scripts/move_workspace.sh
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -139,34 +142,28 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+bindsym $mod+Mod1+h resize shrink width 10 px or 10 ppt
+bindsym $mod+Mod1+j resize grow height 10 px or 10 ppt
+bindsym $mod+Mod1+k resize shrink height 10 px or 10 ppt
+bindsym $mod+Mod1+l resize grow width 10 px or 10 ppt
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# bar {
+#     font pango:mono 11
+#     colors {
+#         background #000000
+#         statusline #7c7c7c
+#         focused_workspace   #000000 #000000 #ffffff
+#         active_workspace    #000000 #000000 #ffffff
+#         inactive_workspace  #000000 #000000 #7c7c7c
+#     }
+#     status_command i3blocks
+#     position top
+#     mode dock
+# }
 
 ####################
 #      Borders     #
@@ -186,12 +183,8 @@ default_border normal 3
 ####################
 
 
-# gaps inner 10
-# gaps outer 10
 bindsym $mod+g gaps inner current set 30; gaps outer current set 15
 bindsym $mod+Shift+g gaps inner current set 0; gaps outer current set 0
-
-exec --no-startup-id feh --no-fehbg --bg-scale ~/Pictures/Wallpapers/fav_galaxy_photos.jpg
 
 exec --no-startup-id compton --xrender-sync --config ~/.config/compton.conf -b
 
@@ -200,11 +193,12 @@ bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse set Master toggle
 
+exec xmodmap ~/.scripts/speedswapper
 # screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 7 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 7  # decrease screen brightness
 
-bindsym $mod+d exec scrot -s -e 'mv $f /tmp'
+bindsym $mod+d exec scrot -s /tmp/screen.png
 bindsym $mod+x              exec --no-startup-id i3lock -e -f -c 000000 -i /home/daniel/Pictures/Wallpapers/iceberg.png
 bindsym $mod+Shift+x        exec shutdown -h now
 
