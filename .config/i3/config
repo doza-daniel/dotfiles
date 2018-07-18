@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+r exec st -t "Ranger" -x 75 -e bash -c ranger
-bindsym $mod+Shift+Return exec st -t "Suckless Terminal" -x 75 -e bash -c tmux
+bindsym $mod+Shift+Return exec st -t "Suckless Terminal" -x 75 -e bash -c "tmux attach -t base || tmux new -s base"
 bindsym $mod+Return exec st -t "Suckless Terminal" -x 75
 
 # kill focused window
@@ -201,4 +201,5 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 7  # decrease screen brightne
 bindsym $mod+d exec scrot -s /tmp/screen.png
 bindsym $mod+x              exec --no-startup-id i3lock -e -f -c 000000 -i /home/daniel/Pictures/Wallpapers/iceberg.png
 bindsym $mod+Shift+x        exec shutdown -h now
+bindsym $mod+b        exec /usr/bin/firefox -P daniel
 
