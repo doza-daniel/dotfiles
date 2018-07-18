@@ -25,6 +25,9 @@ Plug 'fatih/vim-go'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tomlion/vim-solidity'
 
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
 call plug#end()
 
 " PLUGIN SETTINGS
@@ -91,3 +94,4 @@ nnoremap <silent> C-wh :TmuxNavigateLeft<cr>
 nnoremap <silent> C-wj :TmuxNavigateDown<cr>
 nnoremap <silent> C-wk :TmuxNavigateUp<cr>
 nnoremap <silent> C-wl :TmuxNavigateRight<cr>
+
