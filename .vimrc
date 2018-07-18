@@ -3,14 +3,8 @@ set nocompatible
 
 so ~/.vim/plugins.vim
 
-set guioptions-=m  " remove menu bar
-set guioptions-=T  " remove toolbar
-set guioptions-=r  " remove right-hand scroll bar
-set guioptions-=L  " remove left-hand scroll bar
-
 let mapleader="\<SPACE>"
 set shell=bash
-
 
 " Vsplits show up on right
 set splitright
@@ -23,16 +17,24 @@ set t_Co=256
 set background=dark
 colorscheme jellybeans
 hi CursorLine cterm=bold,underline term=bold,underline ctermbg=none
+
 " don't use background for tab characters
 hi SpecialKey ctermbg=none ctermfg=244
+
 " use the background from terminal
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 hi LineNr ctermbg=none
-highlight ColorColumn ctermbg=234
+hi ColorColumn ctermbg=234
+
 " autocomplete menu
-hi Pmenu ctermbg=black ctermfg=white gui=bold
 set cot="menuone"
+hi Pmenu ctermbg=16 ctermfg=3 gui=bold
+hi PmenuThumb ctermbg=1
+hi PmenuSbar ctermbg=11
+hi PmenuSel ctermfg=253 ctermbg=232 cterm=bold
+set pumheight=5
+
 " search
 hi Search ctermbg=165 ctermfg=232
 
@@ -44,10 +46,6 @@ set list listchars=trail:·,tab:>-
 set number
 set rnu
 set cursorline
-
-" Saving and Esc
-imap <C-s> <Esc>:w<CR>
-nmap <C-s> :w<CR>
 
 " Tabs
 map <Leader>n <Esc>:tabnext<CR>
