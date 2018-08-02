@@ -29,7 +29,7 @@ font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=10;3"
 font-3 = "Font Awesome 5 Brands:pixelsize=10;3"
 font-4 = Wuncon Siji:pixelsize=10;3
 
-modules-left = i3 mpd
+modules-left = i3 music
 modules-center =
 modules-right = wifi eth battery date
 
@@ -124,3 +124,10 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 
 format-disconnected =
+
+[module/music]
+type = custom/script
+# format = now playing: <label>
+# label = %output:0:50%
+exec = /home/daniel/.scripts/music_out.sh
+interval = 5
