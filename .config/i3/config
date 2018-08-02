@@ -64,7 +64,7 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+m exec /home/daniel/.scripts/move_workspace.sh
+bindsym $mod+m exec st -t "Music" -x 50 -e bash -c "tmux a -t music || tmux new -s music ncmpcpp"
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
