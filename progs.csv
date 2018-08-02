@@ -1,0 +1,54 @@
+arandr, Provide a simple visual front end for XRandR 1.2., None
+bash-completion, Programmable completion for the bash shell, None
+bc, An arbitrary precision calculator language, None
+blueman, GTK+ Bluetooth Manager, None
+bluez, Daemons for the bluetooth protocol stack, None
+bluez-libs, Deprecated libraries for the bluetooth protocol stack, None
+bluez-utils, Development and debugging utilities for the bluetooth protocol stack, None
+breeze-gtk, Breeze widget theme for GTK 2 and 3, plasma
+compton, X compositor that may fix tearing issues, None
+curl, An URL retrieval utility and library, None
+dmenu, Generic menu for X, None
+docker, Pack, ship and run any application as a lightweight container, None
+feh, Fast and light imlib2-based image viewer, None
+ffmpeg, Complete solution to record, convert and stream audio and video, None
+fish, Smart and user friendly shell intended mostly for interactive use, None
+git, the fast distributed version control system, None
+htop, Interactive process viewer, None
+i3-gaps, A fork of i3wm tiling window manager with more features, including gaps, i3
+i3lock, An improved screenlocker based upon XCB and PAM, i3
+imagemagick, An image viewing/manipulation program, None
+jq, Command-line JSON processor, None
+mpc, Minimalist command line interface to MPD, None
+mpd, Flexible, powerful, server-side application for playing music, None
+mplayer, Media player for Linux, None
+mpv, a free, open source, and cross-platform media player, None
+ncmpcpp, Almost exact clone of ncmpc with some new features, None
+networkmanager, Network connection manager and user applications, gnome
+okular, Document Viewer, kde-applications kdegraphics
+pavucontrol, PulseAudio Volume Control, None
+polybar-git, A fast and easy-to-use status bar, None
+potrace, Utility for tracing a bitmap (input, None
+powerline-fonts, patched fonts for powerline, None
+pulseaudio, A featureful, general-purpose sound server, None
+pulseaudio-bluetooth, Bluetooth support for PulseAudio, None
+ranger, A simple, vim-like file manager, None
+rofi, A window switcher, application launcher and dmenu replacement, None
+rsync, A file transfer program to keep remote files in sync, None
+scrot, Simple command-line screenshot utility for X, None
+sddm, QML based X11 and Wayland display manager, None
+siji-git, Iconic bitmap font based on stlarch with additional glyphs, None, AUR
+slack-desktop, Slack Desktop (Beta) for Linux, None, AUR
+telegram-desktop, Official Telegram Desktop client, None
+texlive-most, LaTeX, None
+tmux, A terminal multiplexer, None
+tree, A directory listing program displaying a depth indented list of files, None
+ttf-dejavu, Font family based on the Bitstream Vera Fonts with a wider range of characters, None
+ttf-font-awesome, Iconic font designed for Bootstrap, None
+ttf-inconsolata, Monospace font for pretty code listings and for the terminal, None
+vglst, A simple virtual terminal emulator for X with jellybeans-like colors and transparency., vgl
+vglvim, VIM, vgl
+vglycm, A code-completion engine for Vim, vgl
+virtualbox, Powerful x86 virtualization for enterprise as well as home use, None
+w3m, Text-based Web browser as well as pager, None
+xorg, X server and apps, None
