@@ -77,5 +77,5 @@ map <Leader>m <Esc>:make<CR>
 " Convenient {} placement
 imap {<CR> {<CR>}<Esc>O
 
-so ./plugins.vim
-so ./colors/custom.vim
+so ~/.config/nvim/plugins.vim
+so ~/.config/nvim/colors/custom.vim
