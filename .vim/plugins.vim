@@ -15,18 +15,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdTree'
-Plug 'tpope/vim-fugitive'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'fatih/vim-go'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tomlion/vim-solidity'
-
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call plug#end()
 
@@ -60,24 +51,10 @@ let g:ycm_semantic_triggers =  {
   \   'haskell' : ['.']
   \ }
 
-" Airline settings
-set laststatus=2
-let g:airline_theme='base16_default'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-set noshowmode
-
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_alt_sep = ''
-
 " Vim-go
 " use goimports for formatting
 let g:go_fmt_command = "goimports"
+let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 
 " turn highlighting on
 let g:go_highlight_functions = 1
@@ -86,12 +63,4 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
-
-let g:tmux_navigator_no_mappings = 1
-
-nnoremap <silent> C-wh :TmuxNavigateLeft<cr>
-nnoremap <silent> C-wj :TmuxNavigateDown<cr>
-nnoremap <silent> C-wk :TmuxNavigateUp<cr>
-nnoremap <silent> C-wl :TmuxNavigateRight<cr>
-
+nmap <Leader>t <ESC>:NERDTreeToggle<CR>
