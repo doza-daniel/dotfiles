@@ -1,0 +1,8 @@
+[user]
+	email = doza.daniel@gmail.com
+	name = Daniel Doza
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
