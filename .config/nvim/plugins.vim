@@ -64,3 +64,4 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 nmap <Leader>t <ESC>:NERDTreeToggle<CR>
+nmap <C-p> <ESC>:FZF<CR>
