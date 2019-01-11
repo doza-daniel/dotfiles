@@ -6,3 +6,4 @@
 	br = branch
 	ci = commit
 	st = status
+	ls = ls-tree HEAD --name-only
