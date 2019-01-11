@@ -1,4 +1,6 @@
 .vim/plugged
 .vim/autoload
+.config/nvim/autoload
+.config/wall.png
 fish/fishd*
 *.swp
