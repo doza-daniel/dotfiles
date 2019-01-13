@@ -117,7 +117,7 @@ bindsym Mod1+space		exec --no-startup-id launcher
 
 bindsym $mod+f			fullscreen toggle
 
-bindsym $mod+x			exec --no-startup-id lockscreen
+bindsym $mod+x			exec --no-startup-id i3lock
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
 bindsym $mod+b			bar mode toggle
