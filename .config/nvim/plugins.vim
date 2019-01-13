@@ -13,7 +13,7 @@ if !filereadable(plugpath)
     endif
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim')
 
 Plug 'scrooloose/nerdTree'
 Plug 'vim-syntastic/syntastic'
