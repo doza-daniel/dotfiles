@@ -17,8 +17,8 @@ set background=dark
 colorscheme jellybeans
 
 " autocomplete menu
-set cot="menuone"
-set pumheight=5
+set cot-=preview
+set pumheight=10
 
 " Display trailing spaces
 set list listchars=trail:·,tab:>-
