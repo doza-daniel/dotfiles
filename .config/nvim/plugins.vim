@@ -24,6 +24,9 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
+inoremap <expr><C-j> pumvisible()? "\<C-n>" : "\<C-j>"
+inoremap <expr><TAB> pumvisible()? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-k> pumvisible()? "\<C-p>" : "\<C-k>"
 
 " Vim-go
 " use goimports for formatting
