@@ -7,5 +7,6 @@
 	ci = commit
 	st = status
 	ls = ls-tree HEAD --name-only
-	diffs = diff --staged
 	a = add
+	ds = diff --staged
+	d = diff
