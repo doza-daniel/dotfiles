@@ -8,3 +8,4 @@
 	st = status
 	ls = ls-tree HEAD --name-only
 	diffs = diff --staged
+	a = add
