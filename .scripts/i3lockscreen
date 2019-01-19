@@ -1,0 +1,5 @@
+#!/bin/bash
+maim /tmp/lock.png
+convert -resize 10% /tmp/lock.png /tmp/lock.png
+convert -resize 1000% /tmp/lock.png /tmp/lock.png
+i3lock -i /tmp/lock.png
