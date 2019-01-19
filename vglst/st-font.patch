@@ -6,7 +6,7 @@ diff -Nurp st-0.8.1/config.def.h st-0.8.1-new/config.def.h
   * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
   */
 -static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-+static char *font = "DejaVu Sans Mono:style=Book:pixelsize=12:antialias=true:autohint=true";
++static char *font = "DejaVu Sans Mono:style=Book:pixelsize=15:antialias=true:autohint=true";
  static int borderpx = 2;
  
  /*
