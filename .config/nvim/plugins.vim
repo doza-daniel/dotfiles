@@ -20,6 +20,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'fatih/vim-go'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call plug#end()
 
@@ -27,6 +28,9 @@ let g:deoplete#enable_at_startup = 1
 inoremap <expr><C-j> pumvisible()? "\<C-n>" : "\<C-j>"
 inoremap <expr><TAB> pumvisible()? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-k> pumvisible()? "\<C-p>" : "\<C-k>"
+
+
+let g:livepreview_previewer = 'zathura'
 
 " Vim-go
 " use goimports for formatting
