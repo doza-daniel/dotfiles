@@ -7,6 +7,7 @@ export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 export FILE="ranger"
+export MANPAGER="nvim +Man!"
 export SUDO_ASKPASS="$HOME/.scripts/dmenupass"
 
 # Source bashrc
