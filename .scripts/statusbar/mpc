@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mpc -f '%artist% - %title%' | sed 1q
+mpc -f '%artist% - %title%' | grep -B 1 playing | sed 1q
 
 case $BLOCK_BUTTON in
 	1) "$TERMINAL" -e ncmpcpp ;;
