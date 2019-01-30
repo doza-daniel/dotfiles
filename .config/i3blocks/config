@@ -3,7 +3,7 @@ separator_block_width=25
 markup=pango
 
 [mpc]
-interval=10
+interval=5
 
 [internet]
 interval=30
