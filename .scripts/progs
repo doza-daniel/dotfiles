@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pacman -Qeq | grep -vxf <(pacman -Qgq base base-devel) | pacman -Qi - | sed -nE '/desc|name/I {s/^.*:\s//; p}' | sed 'N; s/\n/: /'
