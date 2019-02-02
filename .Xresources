@@ -1,6 +1,6 @@
 *.foreground:  #ffffff
 *.background:  #000000
-*.cursorColor: #ffa560
+*.cursorColor: #ffffff
 
 !! Black
 *.color0:      #000000
@@ -33,6 +33,6 @@
 *.colorUL:
 
 !! Transparency (0-255):
-*.alpha: 230
+st.alpha: 230
 !! Set a default font and font size as below:
-*.font: DejaVu Sans Mono 12
+*.font: DejaVu Sans Mono-13
