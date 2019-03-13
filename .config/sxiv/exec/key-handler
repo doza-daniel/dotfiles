@@ -1,0 +1,14 @@
+#!/bin/sh
+while read file
+do
+        case "$1" in
+        ">")
+            convert -rotate 90 "$file" "$file" ;;
+        "w")
+            wallpaper "$file" ;;
+
+        "r")
+            dmenu -p "rename $file" <&- | { read new; [ "$new" ] && mv "$file" "$new"; } ;;
+
+        esac
+done
