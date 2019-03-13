@@ -15,7 +15,7 @@ set $hibernate sudo -A systemctl suspend
 
 # #---Starting External Scripts---# #
 # Setting the background:
-exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
+exec_always --no-startup-id wallpaper
 # Starts dunst for notifications:
 exec --no-startup-id dunst
 # Composite manager:
