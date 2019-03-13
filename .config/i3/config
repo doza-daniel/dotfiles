@@ -123,7 +123,7 @@ bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdow
 
 bindsym $mod+b			bar mode toggle
 
-bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
+bindsym $mod+m 			exec --no-startup-id $term -e bash -c "tmux a -t music || tmux new -s music ncmpcpp"
 
 bindsym $mod+Shift+e		exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 
