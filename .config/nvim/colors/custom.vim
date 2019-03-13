@@ -19,4 +19,7 @@ hi PmenuSel ctermfg=253 ctermbg=232 cterm=bold
 " search
 hi Search ctermbg=165 ctermfg=232
 
-hi StatusLine ctermbg=172 ctermfg=232 cterm=bold
+hi StatusLine ctermbg=4 ctermfg=232 cterm=bold
+
+" Vertical split line doesn't need background
+hi VertSplit ctermbg=none ctermfg=242
