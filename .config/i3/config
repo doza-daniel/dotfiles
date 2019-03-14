@@ -56,7 +56,7 @@ bar {
 			background $background
 			statusline $foreground
 			separator $foreground
-			focused_workspace  	$background $background $foreground
+			focused_workspace  	$foreground $background $foreground
         		active_workspace   	$background $background $foreground
       			inactive_workspace 	$background $background $darkwhite
       			urgent_workspace 	$background $background $darkwhite
