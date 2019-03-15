@@ -6,7 +6,7 @@ for_window [class="^.*"] border pixel 2
 hide_edge_borders smart_no_gaps
 gaps inner 15
 gaps outer 3 
-set $term --no-startup-id st
+set $term --no-startup-id /home/daniel/st/st
 set $mod Mod4
 set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
@@ -43,11 +43,11 @@ set_from_resource $darkwhite    color7          #000000
 set_from_resource $white        color15         #000000
 set $transparent                #00000000
 
-                        BORDER          BACKGROUND      TEXT            INDICATOR               CHILD_BORDER
-client.focused          $red            $red            $magenta        $darkmagenta            $darkblue
-client.unfocused        $transparent    $blue           $white          $darkblue               $darkblack
-client.focused_inactive $transparent    $blue           $white          $darkblue               $darkblack
-client.urgent           $darkred        $darkred        $black          $darkred                $darkred
+#                       BORDER        BACKGROUND  TEXT      INDICATOR    CHILD_BORDER
+client.focused          $red          $red        $magenta  $darkmagenta $darkblue
+client.unfocused        $transparent  $blue       $white    $darkblue    $darkblack
+client.focused_inactive $transparent  $blue       $white    $darkblue    $darkblack
+client.urgent           $darkred      $darkred    $black    $darkred     $darkred
 client.background $black
 
 bar {
