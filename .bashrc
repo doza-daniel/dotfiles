@@ -13,7 +13,7 @@ alias v='nvim'
 alias g='git'
 
 function git_prompt {
-    dotfile_repo=$(git remote -v 2> /dev/null | grep 'doza-daniel/dotfiles\.git')
+    dotfile_repo=$(git remote -v 2> /dev/null | grep 'doza-daniel/dotfiles')
     [ "$dotfile_repo" ] && return
     git_branch=$(git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
     is_dirty=$(git status -s --ignore-submodules=dirty 2> /dev/null)
