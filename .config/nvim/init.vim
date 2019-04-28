@@ -77,5 +77,10 @@ map <Leader>m <Esc>:make<CR>
 " Convenient {} placement
 imap {<CR> {<CR>}<Esc>O
 
+" browse
+nmap <Leader>t <ESC>:e.<CR>
+let g:netrw_banner = 0
+let g:netrw_liststyle=3
+
 so ~/.config/nvim/plugins.vim
 so ~/.config/nvim/colors/custom.vim
