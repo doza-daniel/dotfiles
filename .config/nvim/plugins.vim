@@ -23,6 +23,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
