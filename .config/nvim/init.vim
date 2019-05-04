@@ -48,7 +48,31 @@ autocmd FileType make set nolist
 " No delay going in normal mode
 set ttimeoutlen=10
 
-set laststatus=1
+" StatusLine
+set laststatus=2
+set statusline=%{StatuslineMode()}\ %F%m%r%=line:\ %l\ col:\ %c\ %y
+set noshowmode
+
+function! StatuslineMode()
+  let l:mode=mode()
+  if l:mode==#"n"
+    return "[NORMAL]"
+  elseif l:mode==?"v"
+    return "[VISUAL]"
+  elseif l:mode==#"i"
+    return "[INSERT]"
+  elseif l:mode==#"R"
+    return "[REPLACE]"
+  elseif l:mode==?"s"
+    return "[SELECT]"
+  elseif l:mode==#"t"
+    return "[TERMINAL]"
+  elseif l:mode==#"c"
+    return "[COMMAND]"
+  elseif l:mode==#"!"
+    return "[SHELL]"
+  endif
+endfunction
 
 " Tabs
 map <Leader>n <Esc>:tabnext<CR>
