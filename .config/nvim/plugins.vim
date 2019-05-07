@@ -42,6 +42,10 @@ let g:livepreview_previewer = 'zathura'
 let g:go_fmt_command = "goimports"
 let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 
+" Latex
+let g:syntastic_tex_checkers = ['lacheck']
+let g:syntastic_quiet_messages = { "regex": ['\mpossible unwanted space at "{"' ] }
+
 " turn highlighting on
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
