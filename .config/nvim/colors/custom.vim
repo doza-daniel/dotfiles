@@ -1,5 +1,5 @@
 " Cursor Line
-hi CursorLine cterm=bold,underline term=bold,underline ctermbg=none
+hi CursorLine cterm=bold ctermbg=236
 
 " don't use background for tab characters
 hi SpecialKey ctermbg=none ctermfg=244
