@@ -50,7 +50,7 @@ set ttimeoutlen=10
 
 " StatusLine
 set laststatus=2
-set statusline=%{StatuslineMode()}\ %F%m%r%=line:\ %l\ col:\ %c\ %y
+set statusline=%{StatuslineMode()}\ %t%m%r%=line:\ %l\ col:\ %c\ %y
 set noshowmode
 
 function! StatuslineMode()
