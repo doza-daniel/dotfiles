@@ -25,3 +25,6 @@ function git_prompt {
 
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]] \$(git_prompt)\[$(tput bold)\]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
+source /usr/share/git/completion/git-completion.bash
+__git_complete g __git_main
+
