@@ -82,7 +82,7 @@ bindsym $mod+grave              exec --no-startup-id dmenuunicode
 bindsym $mod+a                  focus parent
 bindsym $mod+q                  [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 
-bindsym $mod+r                  exec $term -e ranger
+bindsym $mod+r                  exec $term -e vifm
 # bindsym $mod+Shift+r          exec --no-startup-id winresize
 bindsym $mod+Shift+r            exec --no-startup-id i3-msg restart
 
