@@ -6,7 +6,8 @@ do
             convert -rotate 90 "$file" "$file" ;;
         "w")
             wallpaper "$file" ;;
-
+        "t")
+            waltheme "$file" ;;
         "r")
             dmenu -p "rename $file" <&- | { read new; [ "$new" ] && mv "$file" "$new"; } ;;
 

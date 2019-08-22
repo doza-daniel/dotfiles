@@ -1,0 +1,4 @@
+#!/bin/bash
+
+[ -z "$1" ] && exit
+wal -sni "$1" && savetheme
