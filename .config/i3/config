@@ -5,10 +5,10 @@ hide_edge_borders smart_no_gaps
 font pango:DejaVu Sans Mono 9
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
-set $shutdown sudo -A shutdown -h now
-set $reboot sudo -A reboot
+floating_modifier Mod4
+set $shutdown poweroff
+set $reboot reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
-set $hibernate sudo -A systemctl suspend
 
 # #---Starting External Scripts---# #
 # Setting the background:
