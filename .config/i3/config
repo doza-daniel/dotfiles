@@ -15,9 +15,8 @@ set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 exec_always --no-startup-id wallpaper
 # Starts dunst for notifications:
 exec --no-startup-id dunst
-# Composite manager:
-exec --no-startup-id compton
-# Runs the key remapping scripts
+# Remove mouse when not in use
+exec --no-startup-id unclutter -idle 2
 
 # Set Xresources colors:
 set_from_resource $background   background      #000000
