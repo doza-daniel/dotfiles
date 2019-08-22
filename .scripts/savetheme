@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xrdb -query | sed -n '/\.color[0-9]\+/p; /\.background/p; /\.foreground/p' > "$HOME/.saved_theme"
