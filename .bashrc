@@ -11,6 +11,7 @@ alias ll='ls -la'
 alias vim='nvim'
 alias v='nvim'
 alias g='git'
+alias r='vifm'
 
 function git_prompt {
     dotfile_repo=$(git remote -v 2> /dev/null | grep 'doza-daniel/dotfiles')
@@ -27,4 +28,3 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 
 source /usr/share/git/completion/git-completion.bash
 __git_complete g __git_main
-
