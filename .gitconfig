@@ -10,3 +10,4 @@
 	a = add
 	ds = diff --staged
 	d = diff
+	lone = log --oneline
