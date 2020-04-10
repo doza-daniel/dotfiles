@@ -12,6 +12,7 @@ alias vim='nvim'
 alias v='nvim'
 alias g='git'
 alias r='vifm'
+alias xclip='xclip -selection clipboard'
 
 function git_prompt {
     dotfile_repo=$(git remote -v 2> /dev/null | grep 'doza-daniel/dotfiles')
