@@ -106,8 +106,7 @@ nmap <Leader>t <ESC>:e.<CR>
 let g:netrw_banner = 0
 let g:netrw_liststyle=3
 
-" change for the current window to the dir of the file being edited in that
-" window
+" set cwd to current file dirname
 nnoremap <leader>cd :lcd %:h<CR>
 
 so ~/.config/nvim/plugins.vim
