@@ -17,6 +17,8 @@ exec_always --no-startup-id wallpaper
 exec --no-startup-id dunst
 # Remove mouse when not in use
 exec --no-startup-id unclutter -idle 2
+# Compositor
+exec --no-startup-id xcompmgr -c
 
 # Set Xresources colors:
 set_from_resource $background   background      #000000
