@@ -1,38 +1,41 @@
-*.foreground:  #ffffff
-*.background:  #000000
-*.cursorColor: #ffffff
+*.foreground:	#dad6ca
+*.background:	#131420
+*.cursorColor:	#dad6ca
 
 !! Black
-*.color0:      #000000
-*.color8:      #0b0b0b
+*.color0:	#131420
+*.color8:	#444444
+
 !! Red
-*.color1:      #e27373
-*.color9:      #ffa1a1
+*.color1:	#9C6A58
+*.color9:	#9C6A58
+
 !! Green
-*.color2:      #94b979
-*.color10:     #bddeab
+*.color2:	#BF6741
+*.color10:	#BF6741
+
 !! Yellow
-*.color3:      #ffba7b
-*.color11:     #ffdca0
+*.color3:	#D19B5E
+*.color11:	#D19B5E
+
 !! Blue
-*.color4:      #97bedc
-*.color12:     #b1d8f6
+*.color4:	#58688A
+*.color12:	#58688A
+
 !! Magenta
-*.color5:      #e1c0fa
-*.color13:     #fbdaff
+*.color5:	#8D7095
+*.color13:	#8D7095
+
 !! Cyan
-*.color6:      #00988e
-*.color14:     #1ab2a8
-!!
+*.color6:	#3ED7B7
+*.color14:	#3ED7B7
+
 !! White
-*.color7:      #7c7c7c
-*.color15:     #ffffff
-!! Bold, Italic, Underline
-*.colorBD:     #ffffff
-*.colorIT:
-*.colorUL:
+*.color7:	#dad6ca
+*.color15:	#dad6ca
 
 !! Transparency (0-255):
-st.alpha: 230
+st.alpha:	230
+
 !! Set a default font and font size as below:
-*.font: DejaVu Sans Mono-10
+*.font:	DejaVu Sans Mono-10

@@ -3,6 +3,5 @@
 for x in "$(xrdb -query | sed "s/.*\./export /g;s/:\s*/=\"/g;s/$/\"/g")"; do eval "$x"; done
 
 dmenu_run -i -l 10 -nb "$background" -nf "$color7" \
-	-sb "$background" -sf "$colorBD" \
+	-sb "$background" -sf "$color5" \
 	-fn "$font" 
-# echo "$background" "$foreground" "$font"
