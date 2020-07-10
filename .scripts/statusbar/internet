@@ -1,12 +1,14 @@
 #!/bin/sh
 
 case $BLOCK_BUTTON in
-	1) $TERMINAL -e nmtui ;;
+    1) $TERMINAL -e nmtui ;;
 esac
 
-[ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon=""
+if [[ "$(cat /sys/class/net/w*/operstate)" == "up" ]]; then
+    wifi=$(grep '^w' /proc/net/wireless | awk '{ print "" " " int($3 * 100 / 70) "%" }')
+fi
 
-[ -z "${wifiicon+var}" ] && wifiicon=$(grep "^\s*w" /proc/net/wireless | \
-    awk '{ print ""  int($3 * 100 / 70) "%" }')
+eth=$(cat /sys/class/net/e*/operstate | sed "s/down//;s/up//")
 
-printf "<span fallback=\"true\">%s</span> <span fallback=\"true\">%s</span>" "$wifiicon" "$(cat /sys/class/net/e*/operstate | sed "s/down//;s/up//")"
+echo "$eth $wifi"
+
