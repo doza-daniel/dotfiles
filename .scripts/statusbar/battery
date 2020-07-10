@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# get xresources colors
-for x in "$(xrdb -query | sed "s/.*\./export /g;s/:\s*/=\"/g;s/$/\"/g")"; do eval "$x"; done
-
 capacity0=$(cat /sys/class/power_supply/BAT0/capacity) || exit
 status0=$(cat /sys/class/power_supply/BAT0/status)
 capacity1=$(cat /sys/class/power_supply/BAT1/capacity) || exit
@@ -10,27 +7,24 @@ status1=$(cat /sys/class/power_supply/BAT1/status)
 
 let capacity=($capacity0 + $capacity1)/2
 
-status=$status1
-[[ "$status0" < "$status1" ]] && status=$status0
-
-case $BLOCK_BUTTON in
-    3) pgrep -x dunst >/dev/null && notify-send "BAT0 🔋: $capacity0%
-BAT1 🔋: $capacity1%" ;;
+case $capacity in
+    [0-5])
+        icon=""
+        ;;
+    [5-9] | [1-2][0-9] | 3[0-5])
+        icon=""
+        ;;
+    3[6-9] | [4-5][0-9] | 6[0-5])
+        icon=""
+        ;;
+    6[6-9] | [7-8][0-9] | 9[0-5])
+        icon=""
+        ;;
+    9[6-9] | 1*)
+        icon=""
+        ;;
 esac
 
-if [ "$capacity" -ge 75 ]; then
-	color="$color10"
-elif [ "$capacity" -ge 50 ]; then
-	color="$color15"
-elif [ "$capacity" -ge 25 ]; then
-	color="$color11"
-else
-	color="$color9"
-	warn="❗"
-fi
+[[ $status0 == "Charging" || $status1 == "Charging" ]] && icon=""
 
-[ -z $warn ] && warn=" "
-
-[ "$status" = "Charging" ] && color="$color15"
-
-printf "<span color='%s'>%s%s%s</span>" "$color" "$(echo "$status" | sed -e "s/,//g;s/Discharging/🔋/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
+echo "$icon $capacity%"
