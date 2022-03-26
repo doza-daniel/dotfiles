@@ -18,6 +18,7 @@ source $HOME/.config/nvim/colors/custom.vim
 
 " autocomplete menu
 set completeopt-=preview
+set completeopt+=noinsert
 set pumheight=10
 
 " Display trailing spaces
@@ -105,9 +106,32 @@ let g:netrw_liststyle=3
 
 call plug#begin('~/.config/nvim')
 
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
+" vim-go: start
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+map <C-u> <Esc>:GoDecls<CR>
+" vim-go: end
+
+" ale: start
+let g:ale_linters = {
+  \ 'go': ['gopls'],
+  \}
+" ale: end
+
 set shortmess+=c
+inoremap <expr><C-j> pumvisible()? "\<C-n>" : "\<C-j>"
+inoremap <expr><TAB> pumvisible()? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-k> pumvisible()? "\<C-p>" : "\<C-k>"
+
+nmap <C-p> <ESC>:FZF<CR>
