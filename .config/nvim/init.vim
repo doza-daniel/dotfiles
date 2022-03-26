@@ -14,17 +14,19 @@ set splitright
 set t_Co=256
 set background=dark
 colorscheme jellybeans
+source $HOME/.config/nvim/colors/custom.vim
 
 " autocomplete menu
-set cot-=preview
+set completeopt-=preview
 set pumheight=10
 
 " Display trailing spaces
-set list listchars=trail:·,tab:>-
+set list
+set listchars=trail:·,tab:>-
 
 " Set line numbers visible
 set number
-set rnu
+set relativenumber
 set cursorline
 
 " Searching options
@@ -40,9 +42,6 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-
-" don't show tabs in makefiles
-autocmd FileType make set nolist
 
 " No delay going in normal mode
 set ttimeoutlen=10
@@ -94,9 +93,6 @@ map - <Esc>:wincmd <<CR>
 map + <Esc>:wincmd +<CR>
 map _ <Esc>:wincmd -<CR>
 
-" Make
-map <Leader>m <Esc>:make<CR>
-
 " Convenient {} placement
 imap {<CR> {<CR>}<Esc>O
 
@@ -105,8 +101,4 @@ nmap <Leader>t <ESC>:e.<CR>
 let g:netrw_banner = 0
 let g:netrw_liststyle=3
 
-" set cwd to current file dirname
-nnoremap <leader>cd :lcd %:h<CR>
-
-so ~/.config/nvim/plugins.vim
-so ~/.config/nvim/colors/custom.vim
+source ~/.config/nvim/plugins.vim
