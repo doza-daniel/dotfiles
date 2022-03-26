@@ -101,4 +101,13 @@ nmap <Leader>t <ESC>:e.<CR>
 let g:netrw_banner = 0
 let g:netrw_liststyle=3
 
-source ~/.config/nvim/plugins.vim
+" Plugins
+
+call plug#begin('~/.config/nvim')
+
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
+set shortmess+=c
