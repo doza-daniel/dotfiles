@@ -1,4 +1,3 @@
-" Nice try Vi
 set nocompatible
 
 let mapleader="\<SPACE>"
