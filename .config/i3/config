@@ -2,8 +2,8 @@
 # Needed for i3-gaps
 for_window [class="^.*"] border pixel 2
 hide_edge_borders smart_no_gaps
-font pango:DejaVu Sans Mono 9
-set $term --no-startup-id $TERMINAL
+font pango:Roboto Mono Medium 12
+set $term --no-startup-id $TERMINAL -x 100
 set $mod Mod4
 floating_modifier Mod4
 set $shutdown poweroff
@@ -19,6 +19,8 @@ exec --no-startup-id dunst
 exec --no-startup-id unclutter -idle 2
 # Compositor
 exec --no-startup-id xcompmgr -c
+
+exec --no-startup-id nm-applet --sm-disable
 
 # Set Xresources colors:
 set_from_resource $background   background      #000000
@@ -42,14 +44,14 @@ set_from_resource $white        color15         #000000
 set $transparent                #00000000
 
 #                       BORDER        BACKGROUND  TEXT      INDICATOR    CHILD_BORDER
-# client.focused          $red          $red        $magenta  $darkmagenta $darkblue
+client.focused          $white        $black      $white  $darkmagenta $darkblue
 # client.unfocused        $transparent  $blue       $white    $darkblue    $darkblack
 # client.focused_inactive $transparent  $blue       $white    $darkblue    $darkblack
 # client.urgent           $darkred      $darkred    $black    $darkred     $darkred
 # client.background $black
 
 bar {
-        font pango:DejaVu Sans Mono 9
+        font pango:Roboto Mono Medium 16
         colors {
                         background $background
                         statusline $foreground
@@ -106,8 +108,8 @@ bindsym $mod+Mod1+l             exec --no-startup-id i3resize right
 bindsym $mod+g                  gaps inner current set 15; gaps outer current set 3
 bindsym $mod+Shift+g            gaps inner current set 0; gaps outer current set 0
 
-bindsym $mod+s                  gaps inner current plus 5
-bindsym $mod+Shift+s            gaps inner current minus 5
+bindsym $mod+d                  gaps inner current plus 5
+bindsym $mod+Shift+d            gaps inner current minus 5
 
 bindsym $mod+z                  gaps outer current plus 5
 bindsym $mod+Shift+z            gaps outer current minus 5
@@ -130,6 +132,7 @@ bindsym $mod+Tab                workspace back_and_forth
 bindsym $mod+semicolon          split horizontal
 bindsym $mod+v                  split vertical
 bindsym $mod+w                  layout tabbed
+bindsym $mod+s                  layout stacked
 bindsym $mod+e                  layout toggle split
 
 set $ws1 "1"
@@ -176,13 +179,13 @@ bindsym Shift+Print             exec --no-startup-id maim -s ~/Pictures/Screensh
 
 # #---Extra XF86 Keys---# #
 # These are the extra media keys that some keyboards have.
-bindsym XF86AudioMute           exec --no-startup-id pamixer -t
-bindsym XF86AudioLowerVolume    exec --no-startup-id pamixer -d 5
-bindsym Shift+XF86AudioLowerVolume      exec --no-startup-id pamixer -d 10
-bindsym Control+XF86AudioLowerVolume    exec --no-startup-id pamixer -d 1
-bindsym XF86AudioRaiseVolume    exec --no-startup-id pamixer -i 5
-bindsym Shift+XF86AudioRaiseVolume      exec --no-startup-id pamixer -i 10
-bindsym Control+XF86AudioRaiseVolume    exec --no-startup-id pamixer -i 1
+bindsym XF86AudioMute           exec --no-startup-id pamixer -t && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume    exec --no-startup-id pamixer -d 5 && pkill -RTMIN+10 i3blocks
+bindsym Shift+XF86AudioLowerVolume      exec --no-startup-id pamixer -d 10 && pkill -RTMIN+10 i3blocks
+bindsym Control+XF86AudioLowerVolume    exec --no-startup-id pamixer -d 1 && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume    exec --no-startup-id pamixer -i 5 && pkill -RTMIN+10 i3blocks
+bindsym Shift+XF86AudioRaiseVolume      exec --no-startup-id pamixer -i 10 && pkill -RTMIN+10 i3blocks
+bindsym Control+XF86AudioRaiseVolume    exec --no-startup-id pamixer -i 1 && pkill -RTMIN+10 i3blocks
 bindsym XF86PowerOff            exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 ##bindsym XF86Copy              exec
 ##bindsym XF86Open              exec
