@@ -8,7 +8,7 @@ if [[ "$(cat /sys/class/net/w*/operstate)" == "up" ]]; then
     wifi=$(grep '^w' /proc/net/wireless | awk '{ print "" " " int($3 * 100 / 70) "%" }')
 fi
 
-eth=$(cat /sys/class/net/e*/operstate | sed "s/down//;s/up//")
+eth=$(cat /sys/class/net/e*/operstate | sed "s/down//;s/up/ /")
 
-echo "$eth $wifi"
+echo "$eth$wifi"
 

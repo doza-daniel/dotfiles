@@ -27,4 +27,7 @@ esac
 
 [[ $status0 == "Charging" || $status1 == "Charging" ]] && icon=""
 
-echo "$icon $capacity%"
+color=$(xrdb -query | grep foreground | head -n1 | awk '{print $2}')
+[[ $capacity -le 15 ]] && color="red"
+
+echo "<span color='$color'>$icon $capacity%</span>"
