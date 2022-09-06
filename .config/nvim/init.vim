@@ -13,8 +13,7 @@ set splitright
 " Colors
 set t_Co=256
 set background=dark
-colorscheme jellybeans
-source $HOME/.config/nvim/colors/custom.vim
+colorscheme gruvbox
 
 " autocomplete menu
 set completeopt-=preview
@@ -124,6 +123,7 @@ map <C-u> <Esc>:GoDecls<CR>
 " vim-go: end
 
 " ale: start
+let g:ale_completion_enabled = 1
 let g:ale_linters = {
   \ 'go': ['gopls'],
   \}
