@@ -15,6 +15,10 @@ set t_Co=256
 set background=dark
 colorscheme gruvbox
 
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+hi LineNr ctermbg=none
+
 " autocomplete menu
 set completeopt-=preview
 set completeopt+=noinsert
