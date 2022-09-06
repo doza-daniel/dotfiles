@@ -112,6 +112,7 @@ call plug#begin('~/.config/nvim')
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -132,6 +133,30 @@ let g:ale_linters = {
   \ 'go': ['gopls'],
   \}
 " ale: end
+
+" vimtex: start
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_mappings_enabled = 0
+let g:vimtex_imaps_enabled = 0
+let g:vimtex_quickfix_ignore_filters = [
+      \ 'Underfull',
+      \ 'Overfull',
+      \]
+
+filetype plugin indent on
+
+imap c1 ć
+imap ch č
+imap zh ž
+imap sh š
+imap dy đ
+
+imap C1 Ć
+imap Ch Č
+imap Zh Ž
+imap Sh Š
+imap Dy Đ
+" vimtex: end
 
 set shortmess+=c
 inoremap <expr><C-j> pumvisible()? "\<C-n>" : "\<C-j>"
