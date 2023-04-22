@@ -14,10 +14,11 @@ set splitright
 " Colors
 set t_Co=256
 set background=dark
-colorscheme jellybeans
+colorscheme gruvbox
 
 " autocomplete menu
 set cot-=preview
+set cot+=noselect,noinsert
 set pumheight=10
 
 " Display trailing spaces
@@ -110,5 +111,24 @@ let g:netrw_liststyle=3
 " window
 nnoremap <leader>cd :lcd %:h<CR>
 
-so ~/.config/nvim/plugins.vim
+call plug#begin('~/.config/nvim')
+
+Plug 'fatih/vim-go'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+nmap <C-p> <ESC>:FZF<CR>
+let g:ale_completion_enabled=1
+let g:ale_linters={ 'go': ['gopls'] }
+
+set shortmess+=c
+inoremap <expr><C-j> pumvisible()? "\<C-n>" : "\<C-j>"
+inoremap <expr><TAB> pumvisible()? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-k> pumvisible()? "\<C-p>" : "\<C-k>"
+
 so ~/.config/nvim/colors/custom.vim
