@@ -1,7 +1,0 @@
-#!/bin/bash
-
-[ -n "$1" ] && feh --bg-scale "$1" && exit
-
-[ -f "$HOME/.fehbg" ] && . $HOME/.fehbg && exit
-
-find $HOME/Pictures/Wallpapers | xargs feh --bg-scale
