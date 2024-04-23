@@ -60,5 +60,5 @@ set mouse=a
 imap {<CR> {<CR>}<Esc>O
 
 " Hide netrw banner and work like a tree
-let g:netrw_banner = 0
+let g:netrw_banner=0
 let g:netrw_liststyle=3
