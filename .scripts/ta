@@ -1,7 +1,0 @@
-#!/bin/bash
-
- CMD="attach"
-[ -n "$TMUX" ] && CMD="switchc"
-
-SESS=$(tmux ls | awk '{print $1}' | tr -d : | fzf --height 80% --reverse)
-[ -n "$SESS" ] && eval "tmux $CMD -t $SESS"

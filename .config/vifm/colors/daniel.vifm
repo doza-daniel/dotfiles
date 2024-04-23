@@ -1,6 +1,0 @@
-hi clear
-hi Border ctermbg=none ctermfg=white
-hi Win ctermbg=none
-hi StatusLine ctermbg=4 cterm=bold ctermfg=232
-hi TopLine ctermbg=4 cterm=bold ctermfg=232
-hi TopLineSel ctermbg=4 cterm=bold ctermfg=232
