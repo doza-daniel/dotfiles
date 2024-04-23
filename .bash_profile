@@ -1,6 +1,9 @@
 # Won't switch to zsh ...
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# Add brew and programs installed by brew to path
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # Source git bash scripts for completion and prompt
 if command -v xcode-select &>/dev/null; then
     prefix="$(xcode-select -p)/usr/share/git-core"
