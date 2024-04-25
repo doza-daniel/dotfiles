@@ -1,5 +1,6 @@
 -- Set leader to space bar
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Hide netrw banner and work like a tree
 vim.g.netrw_banner = 0
@@ -38,3 +39,6 @@ o.smartcase = true
 
 -- No delay going in normal mode
 o.ttimeoutlen = 10
+
+require("bootstrap")
+require("lazy").setup("plugins")
