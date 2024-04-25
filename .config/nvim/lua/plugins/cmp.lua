@@ -6,12 +6,15 @@ return {
     dependencies = {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
-    -- "hrsh7th/cmp-nvim-lsp",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp",
     },
     opts = function()
       local cmp = require("cmp")
+      local luasnip = require("luasnip")
+
+      luasnip.config.setup {}
 
       return {
         preselect = cmp.PreselectMode.None,
@@ -20,28 +23,33 @@ return {
         },
         snippet = {
           expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
+            luasnip.lsp_expand(args.body)
           end,
         },
         window = {
-          documentation = cmp.config.window.bordered {
-            border = {
-              "┌", "─", "┐", "│", "┘", "─", "└", "│",
-            }
-          },
+          documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered(),
         },
         sources = cmp.config.sources {
-          { name = "vsnip" },
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
           { name = "path" },
           { name = "buffer", keyword_length = 4 },
         },
+        view = {
+          docs = {
+            auto_open = false
+          }
+        },
         mapping = {
-          ["<Tab>"] = cmp.mapping.select_next_item { cmp.SelectBehavior.Select },
-          ["<S-Tab>"] = cmp.mapping.select_prev_item { cmp.SelectBehavior.Select },
+          ['<TAB>'] = cmp.mapping.select_next_item(),
+          ['<C-n>'] = cmp.mapping.select_next_item(),
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-y>'] = cmp.mapping.confirm { select = true },
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-d>"] = cmp.mapping.scroll_docs(4),
-          ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-e>"] = cmp.mapping.close(),
+          ["K"] = cmp.open_docs,
           ["<CR>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
