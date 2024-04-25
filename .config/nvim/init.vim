@@ -164,3 +164,4 @@ inoremap <expr><TAB> pumvisible()? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-k> pumvisible()? "\<C-p>" : "\<C-k>"
 
 nmap <C-p> <ESC>:FZF<CR>
+"foobar
