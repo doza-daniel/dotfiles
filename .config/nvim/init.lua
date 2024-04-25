@@ -16,6 +16,10 @@ o.laststatus = 2
 o.statusline = '%!v:lua.require("status").statusLine()'
 o.showmode = false
 
+-- Friednly splits
+o.splitright = true
+o.splitbelow = true
+
 -- Display whitespaces (trailing and tabs)
 o.list = true
 o.listchars = { trail = '·', tab = '>-'}
@@ -40,5 +44,10 @@ o.smartcase = true
 -- No delay going in normal mode
 o.ttimeoutlen = 10
 
+-- Show sign column always
+o.signcolumn = "yes"
+
 require("bootstrap")
 require("lazy").setup("plugins")
+require("colors")
+
