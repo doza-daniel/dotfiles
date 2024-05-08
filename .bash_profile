@@ -18,6 +18,11 @@ if command -v xcode-select &>/dev/null; then
     fi
 fi
 
+# FZF bash completion and history
+if command -v fzf &>/dev/null; then
+    eval "$(fzf --bash)"
+fi
+
 # Set prompt: `[user@machine cdir] [git_branch] $`
 function set_prompt {
     local bold="\[$(tput bold)\]"
@@ -94,3 +99,6 @@ alias grep="grep --color=auto"
 alias v="$EDITOR"
 alias g="git"
 alias f="vifm"
+alias rg="rg -g '!vendor/'"
+alias dotf="cd $HOME/dotfiles/"
+alias wfm="cd $HOME/Documents/projects/wfm/"
