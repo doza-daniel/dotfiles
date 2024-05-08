@@ -9,6 +9,9 @@ vim.g.netrw_liststyle = 3
 -- Convenient {} placement
 vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 
+-- Git blame
+vim.keymap.set("n", "gb", "<CMD>Git blame<CR>")
+
 local o = vim.opt
 
 -- StatusLine

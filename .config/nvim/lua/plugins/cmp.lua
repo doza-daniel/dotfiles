@@ -36,11 +36,6 @@ return {
           { name = "path" },
           { name = "buffer", keyword_length = 4 },
         },
-        view = {
-          docs = {
-            auto_open = false
-          }
-        },
         mapping = {
           ['<TAB>'] = cmp.mapping.select_next_item(),
           ['<C-n>'] = cmp.mapping.select_next_item(),
