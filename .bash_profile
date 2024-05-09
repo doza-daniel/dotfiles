@@ -45,15 +45,19 @@ function set_prompt {
     local col15="\[$(tput setaf 15)\]"
 
     PS1="${bold}"
-    PS1+="${col01}[${col03}\u${col02}@${col04}\h ${col05}\W${col01}] "
+    PS1+="${col01}[${col03}\u${col02}@${col04}\h ${col05}\W${col01}]"
 
     if command -v __git_ps1 &> /dev/null; then
         export GIT_PS1_SHOWDIRTYSTATE=1
-        PS1+="$(__git_ps1 "${col01}[${col03}%s${col01}]") "
+        PS1+="$(__git_ps1 " ${col01}[${col03}%s${col01}]")"
     fi
 
-    PS1+="${col07}\\$"
-    PS1+="${normal} "
+    if [ -n "$VIRTUAL_ENV" ]; then
+        PS1+=" ${col01}<${col03}$(basename $VIRTUAL_ENV)${col01}>"
+    fi
+
+    PS1+=" ${col07}\\$"
+    PS1+=" ${normal}"
 }
 
 PROMPT_COMMAND="set_prompt"
