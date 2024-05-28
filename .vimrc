@@ -62,3 +62,7 @@ imap {<CR> {<CR>}<Esc>O
 " Hide netrw banner and work like a tree
 let g:netrw_banner=0
 let g:netrw_liststyle=3
+
+" Complete menu while typing ex commands
+set wildmenu
+set wildoptions=pum,fuzzy
