@@ -1,6 +1,16 @@
 # Won't switch to zsh ...
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# Update PATH so it includes the Google Cloud SDK.
+if [ -f '/Users/daniel.doza/.local/share/google-cloud-sdk/path.bash.inc' ]; then
+    source '/Users/daniel.doza/.local/share/google-cloud-sdk/path.bash.inc';
+fi
+
+# Enable shell command completion for gcloud.
+if [ -f '/Users/daniel.doza/.local/share/google-cloud-sdk/completion.bash.inc' ]; then
+    source '/Users/daniel.doza/.local/share/google-cloud-sdk/completion.bash.inc';
+fi
+
 # Add brew and programs installed by brew to path
 eval $(/opt/homebrew/bin/brew shellenv)
 
@@ -90,6 +100,11 @@ elif [ -x "$(command -v vim)" ]; then
     export EDITOR=$(command -v vim)
 fi
 
+# Use (neo)vim as manpager
+if [[ -n "$EDITOR" ]]; then
+    export MANPAGER="$EDITOR +Man!"
+fi
+
 # Set locale
 export LC_ALL="en_US.UTF-8"
 
@@ -106,3 +121,4 @@ alias f="vifm"
 alias rg="rg -g '!vendor/'"
 alias dotf="cd $HOME/dotfiles/"
 alias wfm="cd $HOME/Documents/projects/wfm/"
+
