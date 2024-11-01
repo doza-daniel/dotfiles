@@ -44,7 +44,7 @@ return {
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-y>'] = cmp.mapping.confirm { select = true },
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["K"] = cmp.open_docs,
+          -- ["K"] = cmp.open_docs,
           ["<CR>"] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
