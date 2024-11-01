@@ -1,7 +1,9 @@
 #!/bin/bash
 
- CMD="attach"
+ CMD="new-session -A"
 [ -n "$TMUX" ] && CMD="switchc" # switch client if already in a tmux session
 
-SESSION_NAME=$(tmux ls -F '#{session_name}' | fzf --height 10 --reverse)
+SESSION_NAME=$(tmux ls -F '#{session_name}' 2>/dev/null | \
+    fzf --height 10 --reverse --bind enter:accept-or-print-query)
+
 [ -n "$SESSION_NAME" ] && eval "tmux $CMD -t $SESSION_NAME"
