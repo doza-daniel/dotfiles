@@ -12,6 +12,12 @@ vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 -- Git blame
 vim.keymap.set("n", "gb", "<CMD>Git blame<CR>")
 
+-- tabs
+vim.keymap.set("n", "<Leader>N", "<CMD>tabnew<CR>")
+vim.keymap.set("n", "<Leader>n", "<CMD>tabnext<CR>")
+vim.keymap.set("n", "<Leader>p", "<CMD>tabprevious<CR>")
+vim.keymap.set("n", "<Leader>c", "<CMD>tabclose<CR>")
+
 local o = vim.opt
 
 -- StatusLine
