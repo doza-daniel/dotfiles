@@ -30,6 +30,12 @@ function! StatuslineMode()
   endif
 endfunction
 
+" Bind for tabs
+nnoremap <Leader>N <CMD>tabnew<CR>
+nnoremap <Leader>n <CMD>tabnext<CR>
+nnoremap <Leader>p <CMD>tabprevious<CR>
+nnoremap <Leader>c <CMD>tabclose<CR>
+
 " Display whitespaces (trailing and tabs)
 set list listchars=trail:·,tab:>-
 
