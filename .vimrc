@@ -62,6 +62,10 @@ set ttimeoutlen=10
 " Enable mouse (useful for resizing splits)
 set mouse=a
 
+" Vertical splits to the right and horizontal below
+set splitright
+set splitbelow
+
 " Convenient {} placement
 imap {<CR> {<CR>}<Esc>O
 
