@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.cmd.highlight("NonText ctermbg=none guibg=none")
     vim.cmd.highlight("LineNr ctermbg=none guibg=none")
     vim.cmd.highlight("VertSplit ctermbg=none guibg=none")
+    vim.cmd.highlight("CursorLine ctermbg=238 guibg=#444444")
   end
 })
 
