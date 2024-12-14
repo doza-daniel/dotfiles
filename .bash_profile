@@ -11,9 +11,6 @@ if [ -f '/Users/daniel.doza/.local/share/google-cloud-sdk/completion.bash.inc' ]
     source '/Users/daniel.doza/.local/share/google-cloud-sdk/completion.bash.inc';
 fi
 
-# Add brew and programs installed by brew to path
-eval $(/opt/homebrew/bin/brew shellenv)
-
 # Source git bash scripts for completion and prompt
 if command -v xcode-select &>/dev/null; then
     prefix="$(xcode-select -p)/usr/share/git-core"
@@ -109,7 +106,7 @@ fi
 export LC_ALL="en_US.UTF-8"
 
 # Additional path elements
-export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.local/bin/:$HOME/go/bin/:$PATH"
 
 # Set aliases
 alias ls="ls -G"
@@ -118,7 +115,39 @@ alias grep="grep --color=auto"
 alias v="$EDITOR"
 alias g="git"
 alias f="vifm"
-alias rg="rg -g '!vendor/'"
 alias dotf="cd $HOME/dotfiles/"
 alias wfm="cd $HOME/Documents/projects/wfm/"
+alias aat="cd $HOME/Documents/projects/wfm/aat-processor/"
+alias rts="cd $HOME/Documents/projects/wfm/rts/"
+alias wss="cd $HOME/Documents/projects/wfm/websocket-service/"
+alias wss="cd $HOME/Documents/projects/wfm/websocket-service/"
+alias adh="cd $HOME/Documents/projects/wfm/adherence/"
+alias ssp="cd $HOME/Documents/projects/wfm/snappy-stream-processor/"
+alias twf="cd $HOME/Documents/projects/wfm/temporal-workflows/"
+alias uas="cd $HOME/Documents/projects/wfm/uas/"
+alias sapi="cd $HOME/Documents/projects/wfm/storage-api/"
+alias v2="cd $HOME/Documents/projects/wfm/tymeshift-laravel-app/"
 
+# Added by `rbenv init` on Mon Sep  2 16:07:02 CEST 2024
+eval "$(rbenv init - --no-rehash bash)"
+
+#BEGIN ZETUP
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(zetup env shell-exports --bash)"
+#END ZETUP
+
+export VAULT_TOKEN="$(cat $HOME/.local/share/tokens/vault-api-token.txt)"
+
+# BEGIN CICD-TOOLKIT
+export GITHUB_API_TOKEN="$(cat $HOME/.local/share/tokens/github-api-token.txt)"
+export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_API_TOKEN"
+export VENDIR_GITHUB_API_TOKEN="$GITHUB_API_TOKEN"
+# BEGIN CICD-TOOLKIT
+
+# BEGIN ZDI
+export DOCKER_FOR_MAC_ENABLED=true
+source "$HOME/Documents/projects/zendesk/zdi/dockmaster/zdi.sh"
+# END ZDI
+# BEGIN KUBECTL CONFIG
+source "$HOME/Documents/projects/zendesk/kubectl_config/dotfiles/kubectl_stuff.bash"
+# END KUBECTL CONFIG
