@@ -51,7 +51,7 @@ client.focused          $white        $black      $white  $darkmagenta $darkblue
 # client.background $black
 
 bar {
-        font pango:Roboto Mono Medium 16
+        font pango:DejaVu Sans Mono 14
         colors {
                         background $background
                         statusline $foreground
