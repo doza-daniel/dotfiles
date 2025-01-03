@@ -1,31 +1,83 @@
-stty -ixon # Disable ctrl-s and ctrl-q.
-shopt -s autocd #Allows you to cd into directory merely by typing the directory name.
-HISTSIZE= HISTFILESIZE= # Infinite history.
+source "/usr/share/git/git-prompt.sh"
+source "/usr/share/git/completion/git-completion.bash"
 
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
+__git_complete g __git_main
 
-alias ls='ls --color=auto --group-directories-first'
-alias grep='grep --color=auto'
-alias ll='ls -la'
-alias vim='nvim'
-alias v='nvim'
-alias g='git'
-alias r='vifm'
-alias xclip='xclip -selection clipboard'
+# FZF bash completion and history
+if command -v fzf &>/dev/null; then
+    eval "$(fzf --bash)"
+fi
 
-function git_prompt {
-    dotfile_repo=$(git remote -v 2> /dev/null | grep 'doza-daniel/dotfiles')
-    [ "$dotfile_repo" ] && return
-    git_branch=$(git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
-    is_dirty=$(git status -s --ignore-submodules=dirty 2> /dev/null)
+# Set prompt: `[user@machine cdir] [git_branch] $`
+function set_prompt {
+    local bold="\[$(tput bold)\]"
+    local normal="\[$(tput sgr0)\]"
+    local col00="\[$(tput setaf 0)\]"
+    local col01="\[$(tput setaf 1)\]"
+    local col02="\[$(tput setaf 2)\]"
+    local col03="\[$(tput setaf 3)\]"
+    local col04="\[$(tput setaf 4)\]"
+    local col05="\[$(tput setaf 5)\]"
+    local col06="\[$(tput setaf 6)\]"
+    local col07="\[$(tput setaf 7)\]"
+    local col08="\[$(tput setaf 8)\]"
+    local col09="\[$(tput setaf 9)\]"
+    local col10="\[$(tput setaf 10)\]"
+    local col11="\[$(tput setaf 11)\]"
+    local col12="\[$(tput setaf 12)\]"
+    local col13="\[$(tput setaf 13)\]"
+    local col14="\[$(tput setaf 14)\]"
+    local col15="\[$(tput setaf 15)\]"
 
-    [ "$is_dirty" ] && git_branch="$git_branch*"
+    PS1="${bold}"
+    PS1+="${col01}[${col03}\u${col02}@${col04}\h ${col05}\W${col01}]"
 
-    [ $git_branch ] && printf '\001%s\002[\001%s\002%s\001%s\002]\001%s\002' "$(tput setaf 1)" "$(tput setaf 3)" "$git_branch" "$(tput setaf 1)" "$(tput sgr0)"
+    if command -v __git_ps1 &> /dev/null; then
+        export GIT_PS1_SHOWDIRTYSTATE=1
+        PS1+="$(__git_ps1 " ${col01}[${col03}%s${col01}]")"
+    fi
+
+    if [ -n "$VIRTUAL_ENV" ]; then
+        PS1+=" ${col01}<${col03}$(basename $VIRTUAL_ENV)${col01}>"
+    fi
+
+    PS1+=" ${col07}\\$"
+    PS1+=" ${normal}"
 }
 
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]] \$(git_prompt)\[$(tput bold)\]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+PROMPT_COMMAND="set_prompt"
 
-source /usr/share/git/completion/git-completion.bash
-__git_complete g __git_main
+# Disable ctrl-s and ctrl-q.
+stty -ixon
+
+# Eternal bash history.
+# when exiting bash, don't override history file with current session's history
+shopt -s histappend
+# Undocumented feature which sets the size to "unlimited".
+# http://stackoverflow.com/questions/9457233/unlimited-bash-history
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTTIMEFORMAT="[%F %T] "
+# avoid duplicates
+export HISTCONTROL=ignoredups:erasedups
+# Change the file location because certain bash sessions truncate .bash_history
+# file upon close.
+# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
+export HISTFILE=~/.bash_eternal_history
+# Force prompt to write history after every command.
+# http://superuser.com/questions/20900/bash-history-loss
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# Set locale
+export LC_ALL="en_US.UTF-8"
+
+# Additional path elements
+export PATH="$HOME/go/bin/:$PATH"
+
+# Set aliases
+alias ls="ls -G"
+alias ll="ls -lah"
+alias grep="grep --color=auto"
+alias v="$EDITOR"
+alias g="git"
+alias f="vifm"
