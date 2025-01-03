@@ -38,4 +38,4 @@
 st.alpha:	230
 
 !! Set a default font and font size as below:
-*.font:	DejaVu Sans Mono-10
+*.font:	DejaVu Sans Mono-14
