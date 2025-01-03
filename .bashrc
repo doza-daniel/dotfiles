@@ -75,7 +75,7 @@ export LC_ALL="en_US.UTF-8"
 export PATH="$HOME/go/bin/:$PATH"
 
 # Set aliases
-alias ls="ls -G"
+alias ls="ls --color -G"
 alias ll="ls -lah"
 alias grep="grep --color=auto"
 alias v="$EDITOR"
