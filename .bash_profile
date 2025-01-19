@@ -1,6 +1,8 @@
 # Won't switch to zsh ...
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Update PATH so it includes the Google Cloud SDK.
 if [ -f '/Users/daniel.doza/.local/share/google-cloud-sdk/path.bash.inc' ]; then
     source '/Users/daniel.doza/.local/share/google-cloud-sdk/path.bash.inc';
@@ -21,7 +23,10 @@ if command -v xcode-select &>/dev/null; then
     fi
 
     if [ -f "${prefix}/git-prompt.sh" ]; then
+        # export all functions from git-prompt.sh script to subshells
+        set -a
         source "${prefix}/git-prompt.sh"
+        set +a
     fi
 fi
 
@@ -67,7 +72,8 @@ function set_prompt {
     PS1+=" ${normal}"
 }
 
-PROMPT_COMMAND="set_prompt"
+export -f set_prompt
+export PROMPT_COMMAND="set_prompt"
 
 # Disable ctrl-s and ctrl-q.
 stty -ixon
@@ -88,7 +94,7 @@ export HISTCONTROL=ignoredups:erasedups
 export HISTFILE=~/.bash_eternal_history
 # Force prompt to write history after every command.
 # http://superuser.com/questions/20900/bash-history-loss
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # Set EDITOR to neovim if exists, else try vim
 if [ -x "$(command -v nvim)" ]; then
@@ -108,31 +114,10 @@ export LC_ALL="en_US.UTF-8"
 # Additional path elements
 export PATH="$HOME/.local/bin/:$HOME/go/bin/:$PATH"
 
-# Set aliases
-alias ls="ls -G"
-alias ll="ls -lah"
-alias grep="grep --color=auto"
-alias v="$EDITOR"
-alias g="git"
-alias f="vifm"
-alias dotf="cd $HOME/dotfiles/"
-alias wfm="cd $HOME/Documents/projects/wfm/"
-alias aat="cd $HOME/Documents/projects/wfm/aat-processor/"
-alias rts="cd $HOME/Documents/projects/wfm/rts/"
-alias wss="cd $HOME/Documents/projects/wfm/websocket-service/"
-alias wss="cd $HOME/Documents/projects/wfm/websocket-service/"
-alias adh="cd $HOME/Documents/projects/wfm/adherence/"
-alias ssp="cd $HOME/Documents/projects/wfm/snappy-stream-processor/"
-alias twf="cd $HOME/Documents/projects/wfm/temporal-workflows/"
-alias uas="cd $HOME/Documents/projects/wfm/uas/"
-alias sapi="cd $HOME/Documents/projects/wfm/storage-api/"
-alias v2="cd $HOME/Documents/projects/wfm/tymeshift-laravel-app/"
-
 # Added by `rbenv init` on Mon Sep  2 16:07:02 CEST 2024
 eval "$(rbenv init - --no-rehash bash)"
 
 #BEGIN ZETUP
-eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(zetup env shell-exports --bash)"
 #END ZETUP
 
@@ -151,3 +136,7 @@ source "$HOME/Documents/projects/zendesk/zdi/dockmaster/zdi.sh"
 # BEGIN KUBECTL CONFIG
 source "$HOME/Documents/projects/zendesk/kubectl_config/dotfiles/kubectl_stuff.bash"
 # END KUBECTL CONFIG
+
+if [ -f "$HOME/.bashrc" ]; then
+    source "$HOME/.bashrc"
+fi
