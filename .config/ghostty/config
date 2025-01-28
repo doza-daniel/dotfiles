@@ -6,8 +6,8 @@ keybind = opt+j=esc:j
 keybind = opt+k=esc:k
 keybind = opt+l=esc:l
 
-theme = hybrid
-font-family = Menlo Regular
+theme = gruvboxdarkhard
+font-family = DejaVu Sans Mono Bold
 font-feature = -calt
 
 macos-titlebar-style = hidden
