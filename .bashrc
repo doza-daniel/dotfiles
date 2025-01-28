@@ -17,3 +17,26 @@ alias twf="cd $HOME/Documents/projects/wfm/temporal-workflows/"
 alias uas="cd $HOME/Documents/projects/wfm/uas/"
 alias sapi="cd $HOME/Documents/projects/wfm/storage-api/"
 alias v2="cd $HOME/Documents/projects/wfm/tymeshift-laravel-app/"
+
+# Source git bash scripts for completion and prompt
+if command -v xcode-select &>/dev/null; then
+    prefix="$(xcode-select -p)/usr/share/git-core"
+    if [ -f "${prefix}/git-completion.bash" ]; then
+        source "${prefix}/git-completion.bash"
+        # needed for completion to work with 'g' alias
+        __git_complete g __git_main
+    fi
+
+    if [ -f "${prefix}/git-prompt.sh" ]; then
+        # export all functions from git-prompt.sh script to subshells
+        source "${prefix}/git-prompt.sh"
+    fi
+fi
+
+# FZF bash completion and history
+if command -v fzf &>/dev/null; then
+    set -a
+    eval "$(fzf --bash)"
+    set +a
+fi
+

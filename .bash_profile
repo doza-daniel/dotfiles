@@ -13,28 +13,6 @@ if [ -f '/Users/daniel.doza/.local/share/google-cloud-sdk/completion.bash.inc' ]
     source '/Users/daniel.doza/.local/share/google-cloud-sdk/completion.bash.inc';
 fi
 
-# Source git bash scripts for completion and prompt
-if command -v xcode-select &>/dev/null; then
-    prefix="$(xcode-select -p)/usr/share/git-core"
-    if [ -f "${prefix}/git-completion.bash" ]; then
-        source "${prefix}/git-completion.bash"
-        # needed for completion to work with 'g' alias
-        __git_complete g __git_main
-    fi
-
-    if [ -f "${prefix}/git-prompt.sh" ]; then
-        # export all functions from git-prompt.sh script to subshells
-        set -a
-        source "${prefix}/git-prompt.sh"
-        set +a
-    fi
-fi
-
-# FZF bash completion and history
-if command -v fzf &>/dev/null; then
-    eval "$(fzf --bash)"
-fi
-
 # Set prompt: `[user@machine cdir] [git_branch] $`
 function set_prompt {
     local bold="\[$(tput bold)\]"
