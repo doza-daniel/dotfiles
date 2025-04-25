@@ -3,5 +3,5 @@
  CMD="attach"
 [ -n "$TMUX" ] && CMD="switchc"
 
-SESS=$(tmux ls | awk '{print $1}' | tr -d : | fzf --height 80% --reverse)
-[ -n "$SESS" ] && eval "tmux $CMD -t $SESS"
+SESSION_NAME=$(tmux ls -F '#{session_name}' | fzf --height 10 --reverse)
+[ -n "$SESSION_NAME" ] && eval "tmux $CMD -t $SESSION_NAME"
