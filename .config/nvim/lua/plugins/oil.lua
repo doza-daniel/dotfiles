@@ -1,9 +1,10 @@
 return {
   'stevearc/oil.nvim',
-  ---@module 'oil'
-  ---@type oil.SetupOpts
-  opts = {},
-  -- Optional dependencies
-  dependencies = { { "echasnovski/mini.icons", opts = {} } },
-  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  opts = function()
+    vim.keymap.set("n", "-", "<CMD>Oil<CR>")
+    return {
+      columns = { "icon", "permissions", "size", "mtime" }
+    }
+  end
 }
