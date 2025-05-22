@@ -9,9 +9,6 @@ vim.g.netrw_liststyle = 3
 -- Convenient {} placement
 vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 
--- Git blame
-vim.keymap.set("n", "gb", "<CMD>Git blame<CR>")
-
 -- tabs
 vim.keymap.set("n", "<Leader>N", "<CMD>tabnew<CR>")
 vim.keymap.set("n", "<Leader>n", "<CMD>tabnext<CR>")

@@ -1,5 +1,10 @@
 return {
-  "tpope/vim-fugitive",
+  {
+    "tpope/vim-fugitive",
+    keys = {
+      { "gb", "<CMD>Git blame<CR>" }
+    }
+  },
   {
     "airblade/vim-gitgutter",
     config = function()
