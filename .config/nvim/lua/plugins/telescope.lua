@@ -5,15 +5,21 @@ return {
       "nvim-lua/plenary.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
     },
-    config = function()
-      local telescope = require("telescope.builtin")
-      vim.keymap.set("n", "<C-p>", telescope.find_files)
-      vim.keymap.set("n", "<Leader>lg", telescope.live_grep)
-    end,
-    pickers = {
-      find_files = {
-        hidden = true
-      }
-    }
+    keys = {
+      {"<C-p>", require("telescope.builtin").find_files},
+      {"<leader>lg", require("telescope.builtin").live_grep},
+    },
+    opts = {
+      defaults = {
+        file_ignore_patterns = {
+          ".git/"
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = true
+        }
+      },
+    },
   }
 }
