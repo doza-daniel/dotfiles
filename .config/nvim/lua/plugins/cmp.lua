@@ -27,13 +27,14 @@ return {
           end,
         },
         window = {
-          documentation = cmp.config.window.bordered(),
+          -- documentation = cmp.config.window.bordered(),
           completion = cmp.config.window.bordered(),
         },
         sources = cmp.config.sources {
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "path" },
+          { name = "lazydev", group_index = 0 },
           { name = "buffer", keyword_length = 4 },
         },
         mapping = {
@@ -43,12 +44,8 @@ return {
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-y>'] = cmp.mapping.confirm { select = true },
-          ["<C-Space>"] = cmp.mapping.complete(),
-          -- ["K"] = cmp.open_docs,
-          ["<CR>"] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          },
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['K'] = cmp.open_docs,
         },
       }
     end
