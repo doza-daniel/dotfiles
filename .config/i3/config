@@ -3,7 +3,7 @@
 for_window [class="^.*"] border pixel 2
 hide_edge_borders smart_no_gaps
 font pango:DejaVu Sans Mono 14
-set $term --no-startup-id $TERMINAL -x 100
+set $term --no-startup-id $TERMINAL
 set $mod Mod4
 floating_modifier Mod4
 set $shutdown poweroff
@@ -82,8 +82,7 @@ bindsym $mod+grave              exec --no-startup-id dmenuunicode
 bindsym $mod+a                  focus parent
 bindsym $mod+q                  [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 
-bindsym $mod+r                  exec $term -e vifm
-# bindsym $mod+Shift+r          exec --no-startup-id winresize
+bindsym $mod+r                  exec $term -e files
 bindsym $mod+Shift+r            exec --no-startup-id i3-msg restart
 
 bindsym $mod+t                  split toggle
