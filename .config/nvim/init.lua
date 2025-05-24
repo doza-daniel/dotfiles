@@ -19,7 +19,7 @@ local o = vim.opt
 
 -- StatusLine
 o.laststatus = 2
-o.statusline = '%!v:lua.require("status").statusLine()'
+o.statusline = require("status").statusLine()
 o.showmode = false
 
 -- Friednly splits
