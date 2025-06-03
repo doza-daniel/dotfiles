@@ -5,10 +5,13 @@ return {
       "nvim-lua/plenary.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
     },
-    keys = {
-      {"<C-p>", require("telescope.builtin").find_files},
-      {"<leader>lg", require("telescope.builtin").live_grep},
-    },
+    keys = function()
+      local telescope = require("telescope.builtin")
+      return {
+        { "<C-p>",      telescope.find_files, 'Find Files' },
+        { "<leader>lg", telescope.live_grep,  'Live grep' },
+      }
+    end,
     opts = {
       defaults = {
         file_ignore_patterns = {
