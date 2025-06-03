@@ -1,7 +1,8 @@
 #!/bin/bash
 
- CMD="attach"
-[ -n "$TMUX" ] && CMD="switchc"
+[[ -n $TMUX ]] && echo "Already in a tmux session" && exit 1
 
-SESSION_NAME=$(tmux ls -F '#{session_name}' | fzf --height 10 --reverse)
-[ -n "$SESSION_NAME" ] && eval "tmux $CMD -t $SESSION_NAME"
+SESSION_NAME=$(tmux ls -F '#{session_name}' 2>/dev/null |\
+    fzf --height 10 --reverse --bind=enter:accept-or-print-query)
+
+[[ -n $SESSION_NAME ]] && tmux new -As $SESSION_NAME
