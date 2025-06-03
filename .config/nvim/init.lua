@@ -19,7 +19,7 @@ local o = vim.opt
 
 -- StatusLine
 o.laststatus = 2
-o.statusline = require("status").statusLine()
+o.statusline = '%!v:lua.require("status").statusLine()'
 o.showmode = false
 
 -- Friednly splits
@@ -28,7 +28,7 @@ o.splitbelow = true
 
 -- Display whitespaces (trailing and tabs)
 o.list = true
-o.listchars = { trail = '·', tab = '>-'}
+o.listchars = { trail = '·', tab = '>-' }
 
 -- Set line numbers visible
 o.number = true
@@ -53,7 +53,8 @@ o.ttimeoutlen = 10
 -- Show sign column always
 o.signcolumn = "yes"
 
-require("bootstrap")
-require("lazy").setup("plugins")
-require("colors")
+-- Tweak completion menu popup
+o.completeopt = { 'menu', 'menuone', 'popup', 'noinsert', 'fuzzy' }
 
+require("bootstrap")
+require("colors")
