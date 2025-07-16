@@ -6,8 +6,10 @@ keybind = opt+j=esc:j
 keybind = opt+k=esc:k
 keybind = opt+l=esc:l
 
-theme = gruvboxdarkhard
+theme = catppuccin-macchiato
 font-family = DejaVu Sans Mono Bold
 font-feature = -calt
 
-macos-titlebar-style = hidden
+window-decoration = false
+
+cursor-style = underline
