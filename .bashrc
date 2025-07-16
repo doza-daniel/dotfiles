@@ -15,8 +15,10 @@ alias adh="cd $HOME/Documents/projects/wfm/adherence/"
 alias ssp="cd $HOME/Documents/projects/wfm/snappy-stream-processor/"
 alias twf="cd $HOME/Documents/projects/wfm/temporal-workflows/"
 alias uas="cd $HOME/Documents/projects/wfm/uas/"
+alias shd="cd $HOME/Documents/projects/wfm/shredder/"
 alias sapi="cd $HOME/Documents/projects/wfm/storage-api/"
 alias v2="cd $HOME/Documents/projects/wfm/tymeshift-laravel-app/"
+alias gctx='kubectl config get-contexts -o name | grep gke | fzf | ( read ctx; kubectl config use-context $ctx )'
 
 # Source git bash scripts for completion and prompt
 if command -v xcode-select &>/dev/null; then
