@@ -9,9 +9,6 @@ vim.g.netrw_liststyle = 3
 -- Convenient {} placement
 vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O")
 
--- Git blame
-vim.keymap.set("n", "gb", "<CMD>Git blame<CR>")
-
 -- tabs
 vim.keymap.set("n", "<Leader>N", "<CMD>tabnew<CR>")
 vim.keymap.set("n", "<Leader>n", "<CMD>tabnext<CR>")
@@ -31,7 +28,7 @@ o.splitbelow = true
 
 -- Display whitespaces (trailing and tabs)
 o.list = true
-o.listchars = { trail = '·', tab = '>-'}
+o.listchars = { trail = '·', tab = '>-' }
 
 -- Set line numbers visible
 o.number = true
@@ -56,7 +53,8 @@ o.ttimeoutlen = 10
 -- Show sign column always
 o.signcolumn = "yes"
 
-require("bootstrap")
-require("lazy").setup("plugins")
-require("colors")
+-- Tweak completion menu popup
+o.completeopt = { 'menu', 'menuone', 'popup', 'noinsert', 'fuzzy' }
 
+require("bootstrap")
+require("colors")
