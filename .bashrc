@@ -19,6 +19,7 @@ alias shd="cd $HOME/Documents/projects/wfm/shredder/"
 alias sapi="cd $HOME/Documents/projects/wfm/storage-api/"
 alias v2="cd $HOME/Documents/projects/wfm/tymeshift-laravel-app/"
 alias gctx='kubectl config get-contexts -o name | grep gke | fzf | ( read ctx; kubectl config use-context $ctx )'
+alias gco="g br --format '%(refname)' | sed 's,refs/heads/,,' | fzf | xargs git checkout"
 
 # Source git bash scripts for completion and prompt
 if command -v xcode-select &>/dev/null; then
@@ -42,3 +43,5 @@ if command -v fzf &>/dev/null; then
     set +a
 fi
 
+source $ZENDESK_CODE_DIR/scooter/scripts/shell/scooter.sh
+export SCOOTER_KUBERNETES_CONTEXT=scooter-euc1

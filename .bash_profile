@@ -35,7 +35,7 @@ function set_prompt {
     local col15="\[$(tput setaf 15)\]"
 
     PS1="${bold}"
-    PS1+="${col01}[${col03}\u${col02}@${col04}\h ${col05}\W${col01}]"
+    PS1+="${col01}[${col05}\W${col01}]"
 
     if command -v __git_ps1 &> /dev/null; then
         export GIT_PS1_SHOWDIRTYSTATE=1
