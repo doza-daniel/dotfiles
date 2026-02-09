@@ -122,7 +122,8 @@ bindsym $mod+Shift+x            exec --no-startup-id prompt "Shutdown computer?"
 
 bindsym $mod+b                  bar mode toggle
 
-bindsym $mod+m                  exec --no-startup-id $term -e bash -c "tmux a -t music || tmux new -s music ncmpcpp"
+# bindsym $mod+m                  exec --no-startup-id $term -e bash -c "tmux a -t music || tmux new -s music ncmpcpp"
+bindsym $mod+m                  exec --no-startup-id chromium --app=https://open.spotify.com
 
 bindsym $mod+Shift+e            exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 
@@ -175,6 +176,7 @@ bindsym $mod+Shift+0    move container to workspace $ws10
 # For screenshots and recording
 bindsym Print                   exec --no-startup-id maim ~/Pictures/Screenshots/pic-full-"$(date '+%y%m%d-%H%M-%S').png"
 bindsym Shift+Print             exec --no-startup-id maim -s ~/Pictures/Screenshots/pic-selected-"$(date '+%y%m%d-%H%M-%S').png"
+bindsym Mod1+Shift+4         exec --no-startup-id scrot -s -F ~/Pictures/Screenshots/pic-selected-"$(date '+%y%m%d-%H%M-%S').png"
 
 # #---Extra XF86 Keys---# #
 # These are the extra media keys that some keyboards have.
