@@ -1,0 +1,4 @@
+theme = Catppuccin Mocha
+font-family = DejaVu Sans Mono
+window-decoration = server
+app-notifications = no-clipboard-copy,config-reload
