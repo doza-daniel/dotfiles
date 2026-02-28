@@ -3,9 +3,12 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
   keys = {
-    {"-", "<CMD>Oil<CR>"}
+    { "-", "<CMD>Oil<CR>" }
   },
   opts = {
     columns = { "icon", "permissions", "size", "mtime" },
+    keymaps = {
+      ["<C-p>"] = false,
+    },
   },
 }
