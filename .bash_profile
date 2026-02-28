@@ -1,3 +1,7 @@
+#BEGIN ZETUP
+eval "$( /opt/homebrew/bin/brew shellenv )"
+eval "$( zetup env shell-exports --bash )"
+#END ZETUP
 # Won't switch to zsh ...
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
@@ -95,9 +99,6 @@ export PATH="$HOME/.local/bin/:$HOME/go/bin/:$PATH"
 # Added by `rbenv init` on Mon Sep  2 16:07:02 CEST 2024
 eval "$(rbenv init - --no-rehash bash)"
 
-#BEGIN ZETUP
-eval "$(zetup env shell-exports --bash)"
-#END ZETUP
 
 export VAULT_TOKEN="$(cat $HOME/.local/share/tokens/vault-api-token.txt)"
 
