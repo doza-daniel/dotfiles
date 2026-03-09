@@ -6,10 +6,10 @@ keybind = opt+j=esc:j
 keybind = opt+k=esc:k
 keybind = opt+l=esc:l
 
-theme = catppuccin-macchiato
-font-family = DejaVu Sans Mono Bold
-font-feature = -calt
+theme = catppuccin macchiato
+font-family = Deja Vu Sans Mono
+# font-feature = -calt
 
 window-decoration = false
 
-cursor-style = underline
+cursor-style = block

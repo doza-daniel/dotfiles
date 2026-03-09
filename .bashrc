@@ -6,19 +6,6 @@ alias v="$EDITOR"
 alias g="git"
 alias f="vifm"
 alias dotf="cd $HOME/dotfiles/"
-alias wfm="cd $HOME/Documents/projects/wfm/"
-alias aat="cd $HOME/Documents/projects/wfm/aat-processor/"
-alias rts="cd $HOME/Documents/projects/wfm/rts/"
-alias wss="cd $HOME/Documents/projects/wfm/websocket-service/"
-alias wss="cd $HOME/Documents/projects/wfm/websocket-service/"
-alias adh="cd $HOME/Documents/projects/wfm/adherence/"
-alias ssp="cd $HOME/Documents/projects/wfm/snappy-stream-processor/"
-alias twf="cd $HOME/Documents/projects/wfm/temporal-workflows/"
-alias uas="cd $HOME/Documents/projects/wfm/uas/"
-alias shd="cd $HOME/Documents/projects/wfm/shredder/"
-alias sapi="cd $HOME/Documents/projects/wfm/storage-api/"
-alias v2="cd $HOME/Documents/projects/wfm/tymeshift-laravel-app/"
-alias gctx='kubectl config get-contexts -o name | grep gke | fzf | ( read ctx; kubectl config use-context $ctx )'
 alias gco="g br --format '%(refname)' | sed 's,refs/heads/,,' | fzf | xargs git checkout"
 
 # Source git bash scripts for completion and prompt
@@ -42,6 +29,3 @@ if command -v fzf &>/dev/null; then
     eval "$(fzf --bash)"
     set +a
 fi
-
-source $ZENDESK_CODE_DIR/scooter/scripts/shell/scooter.sh
-export SCOOTER_KUBERNETES_CONTEXT=scooter-euc1

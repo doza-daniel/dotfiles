@@ -1,21 +1,7 @@
-#BEGIN ZETUP
-eval "$( /opt/homebrew/bin/brew shellenv )"
-eval "$( zetup env shell-exports --bash )"
-#END ZETUP
 # Won't switch to zsh ...
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Update PATH so it includes the Google Cloud SDK.
-if [ -f '/Users/daniel.doza/.local/share/google-cloud-sdk/path.bash.inc' ]; then
-    source '/Users/daniel.doza/.local/share/google-cloud-sdk/path.bash.inc';
-fi
-
-# Enable shell command completion for gcloud.
-if [ -f '/Users/daniel.doza/.local/share/google-cloud-sdk/completion.bash.inc' ]; then
-    source '/Users/daniel.doza/.local/share/google-cloud-sdk/completion.bash.inc';
-fi
 
 # Set prompt: `[user@machine cdir] [git_branch] $`
 function set_prompt {
@@ -93,28 +79,12 @@ fi
 # Set locale
 export LC_ALL="en_US.UTF-8"
 
+# go
+export GOROOT="$HOME/.local/go1.26.0"
+
 # Additional path elements
-export PATH="$HOME/.local/bin/:$HOME/go/bin/:$PATH"
+export PATH="$HOME/.local/bin/:$HOME/go/bin/:$GOROOT/bin:$PATH"
 
-# Added by `rbenv init` on Mon Sep  2 16:07:02 CEST 2024
-eval "$(rbenv init - --no-rehash bash)"
-
-
-export VAULT_TOKEN="$(cat $HOME/.local/share/tokens/vault-api-token.txt)"
-
-# BEGIN CICD-TOOLKIT
-export GITHUB_API_TOKEN="$(cat $HOME/.local/share/tokens/github-api-token.txt)"
-export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_API_TOKEN"
-export VENDIR_GITHUB_API_TOKEN="$GITHUB_API_TOKEN"
-# BEGIN CICD-TOOLKIT
-
-# BEGIN ZDI
-export DOCKER_FOR_MAC_ENABLED=true
-source "$HOME/Documents/projects/zendesk/zdi/dockmaster/zdi.sh"
-# END ZDI
-# BEGIN KUBECTL CONFIG
-source "$HOME/Documents/projects/zendesk/kubectl_config/dotfiles/kubectl_stuff.bash"
-# END KUBECTL CONFIG
 
 if [ -f "$HOME/.bashrc" ]; then
     source "$HOME/.bashrc"
