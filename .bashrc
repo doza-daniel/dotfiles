@@ -43,5 +43,39 @@ if command -v fzf &>/dev/null; then
     set +a
 fi
 
-source $ZENDESK_CODE_DIR/scooter/scripts/shell/scooter.sh
-export SCOOTER_KUBERNETES_CONTEXT=scooter-euc1
+# Added by `rbenv init` on Mon Sep  2 16:07:02 CEST 2024
+eval "$(rbenv init - --no-rehash bash)"
+
+# BEGIN KUBECTL CONFIG
+source "$ZENDESK_CODE_DIR/kubectl_config/dotfiles/kubectl_stuff.bash"
+# END KUBECTL CONFIG
+
+# BEGIN SCOOTER
+export SCOOTER_KUBERNETES_CONTEXT="scooter-euw1-1"
+export SCOOTER_PROFILE="devs/wfm"
+source "$ZENDESK_CODE_DIR/scooter/scripts/shell/scooter.sh"
+# END SCOOTER
+
+# FZF catpuccin-mocha
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
+--color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+--color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+--color=selected-bg:#45475A \
+--color=border:#6C7086,label:#CDD6F4"
+
+# FZF catpuccin-latte
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#CCD0DA,bg:#EFF1F5,spinner:#DC8A78,hl:#D20F39 \
+# --color=fg:#4C4F69,header:#D20F39,info:#8839EF,pointer:#DC8A78 \
+# --color=marker:#7287FD,fg+:#4C4F69,prompt:#8839EF,hl+:#D20F39 \
+# --color=selected-bg:#BCC0CC \
+# --color=border:#9CA0B0,label:#4C4F69"
+
+# FZF catpuccin-frappe
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#414559,bg:#303446,spinner:#F2D5CF,hl:#E78284 \
+# --color=fg:#C6D0F5,header:#E78284,info:#CA9EE6,pointer:#F2D5CF \
+# --color=marker:#BABBF1,fg+:#C6D0F5,prompt:#CA9EE6,hl+:#E78284 \
+# --color=selected-bg:#51576D \
+# --color=border:#737994,label:#C6D0F5"
