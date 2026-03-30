@@ -15,6 +15,10 @@ vim.keymap.set("n", "<Leader>n", "<CMD>tabnext<CR>")
 vim.keymap.set("n", "<Leader>p", "<CMD>tabprevious<CR>")
 vim.keymap.set("n", "<Leader>c", "<CMD>tabclose<CR>")
 
+-- quickfix list
+vim.keymap.set("n", "]]", "<CMD>cnext<CR>")
+vim.keymap.set("n", "[[", "<CMD>cprev<CR>")
+
 local o = vim.opt
 
 -- StatusLine
@@ -58,3 +62,4 @@ o.completeopt = { 'menu', 'menuone', 'popup', 'noinsert', 'fuzzy' }
 
 require("bootstrap")
 require("colors")
+require("ts")
