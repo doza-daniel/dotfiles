@@ -4,7 +4,7 @@
 export PATH="$HOME/.local/bin/:$PATH"
 export LC_ALL="en_US.UTF-8"
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="ghostty"
 export BROWSER="firefox"
 export READER="zathura"
 export MANPAGER="nvim +Man!"
