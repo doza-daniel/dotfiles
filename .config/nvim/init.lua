@@ -28,7 +28,7 @@ o.splitbelow = true
 
 -- Display whitespaces (trailing and tabs)
 o.list = true
-o.listchars = { trail = '·', tab = '>-' }
+o.listchars = { lead = '·', trail = '·', tab = '>-' }
 
 -- Set line numbers visible
 o.number = true

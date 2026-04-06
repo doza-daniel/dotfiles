@@ -2,6 +2,12 @@ local servers = {
   gopls = {},
   golangci_lint_ls = {},
   lua_ls = {},
+  phpactor = {},
+  denols = {},
+  jedi_language_server = {},
+  vtsls = {},
+  eslint = {},
+  zls = {},
 }
 
 local tools = {
@@ -29,11 +35,14 @@ return {
       server.capabilities = vim.tbl_deep_extend(
         'force', capabilities, server.capabilities or {}
       )
-      require('lspconfig')[server_name].setup(server)
+      vim.lsp.config(server_name, server)
+      vim.lsp.enable(server_name)
     end
 
+
+    local augroup = vim.api.nvim_create_augroup('my.lsp', { clear = true })
+
     vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('my.lsp', { clear = true }),
       callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
@@ -43,14 +52,11 @@ return {
         end
 
         -- Auto-format ("lint") on save.
-        if not client:supports_method('textDocument/willSaveWaitUntil')
-            and client:supports_method('textDocument/formatting') then
+        if client:supports_method('textDocument/formatting') then
           vim.api.nvim_create_autocmd('BufWritePre', {
-            group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+            group = augroup,
             buffer = args.buf,
             callback = function()
-              local opts = { context = { only = { "source.organizeImports" } }, apply = true }
-              vim.lsp.buf.code_action(opts)
               vim.lsp.buf.format()
             end,
           })
@@ -69,6 +75,16 @@ return {
         map('<leader>D', telescope.lsp_type_definitions, 'Type [D]efinition')
         map('<C-u>', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
         map('<leader>ws', telescope.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
+        local organizeImports = function()
+          local opts = {
+            context = { only = { "source.organizeImports" } },
+            apply = true,
+          }
+          vim.lsp.buf.code_action(opts)
+        end
+
+        map('<Leader>i', organizeImports, 'Organize [i]mports')
       end,
     })
   end
