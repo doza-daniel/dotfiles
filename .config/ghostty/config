@@ -1,4 +1,6 @@
 theme = Catppuccin Mocha
-font-family = DejaVu Sans Mono
+font-family = Noto Sans Mono
+font-size = 14
 window-decoration = server
 app-notifications = no-clipboard-copy,config-reload
+confirm-close-surface = false
