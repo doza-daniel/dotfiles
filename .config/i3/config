@@ -113,7 +113,7 @@ bindsym $mod+Shift+d            gaps inner current minus 5
 bindsym $mod+z                  gaps outer current plus 5
 bindsym $mod+Shift+z            gaps outer current minus 5
 
-bindsym Mod1+space              exec --no-startup-id launcher
+bindsym Mod1+space              exec --no-startup-id rofi -show run
 
 bindsym $mod+f                  fullscreen toggle
 
