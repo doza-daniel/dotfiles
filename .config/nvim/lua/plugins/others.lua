@@ -22,4 +22,8 @@ return {
     name = "catppuccin",
     priority = 1000
   },
+  {
+    "mofiqul/dracula.nvim",
+    priority = 1000
+  },
 }

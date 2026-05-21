@@ -1,4 +1,4 @@
-theme = Catppuccin Mocha
+theme = Dracula
 font-family = Noto Sans Mono
 font-size = 14
 window-decoration = server
