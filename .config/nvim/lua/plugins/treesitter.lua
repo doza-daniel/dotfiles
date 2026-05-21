@@ -19,6 +19,7 @@ return {
       pattern = {
         "python",
         "javascript",
+        "javascriptreact",
         "go",
         "lua",
         "vim",
