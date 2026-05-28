@@ -56,26 +56,23 @@ export SCOOTER_PROFILE="devs/wfm"
 source "$ZENDESK_CODE_DIR/scooter/scripts/shell/scooter.sh"
 # END SCOOTER
 
-# FZF catpuccin-mocha
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
---color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
---color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
---color=selected-bg:#45475A \
---color=border:#6C7086,label:#CDD6F4"
+function setup_fzf() {
+    eval $(\
+        ghostty +show-config |\
+        grep -E '#([A-Za-z]|[0-9])+$' |\
+        sed 's/-/_/; s/palette = /palette/; s/ = /=/; s/^/local /'\
+    )
 
-# FZF catpuccin-latte
-# export FZF_DEFAULT_OPTS=" \
-# --color=bg+:#CCD0DA,bg:#EFF1F5,spinner:#DC8A78,hl:#D20F39 \
-# --color=fg:#4C4F69,header:#D20F39,info:#8839EF,pointer:#DC8A78 \
-# --color=marker:#7287FD,fg+:#4C4F69,prompt:#8839EF,hl+:#D20F39 \
-# --color=selected-bg:#BCC0CC \
-# --color=border:#9CA0B0,label:#4C4F69"
-
-# FZF catpuccin-frappe
-# export FZF_DEFAULT_OPTS=" \
-# --color=bg+:#414559,bg:#303446,spinner:#F2D5CF,hl:#E78284 \
-# --color=fg:#C6D0F5,header:#E78284,info:#CA9EE6,pointer:#F2D5CF \
-# --color=marker:#BABBF1,fg+:#C6D0F5,prompt:#CA9EE6,hl+:#E78284 \
-# --color=selected-bg:#51576D \
-# --color=border:#737994,label:#C6D0F5"
+    export FZF_DEFAULT_OPTS=" \
+        --color=bg:$background,fg:$foreground \
+        --color=bg+:$selection_background,fg+:$selection_foreground \
+        --color=hl:$palette5,hl+:$palette13 \
+        --color=pointer:$background \
+        --color=gutter:$background \
+        --color=scrollbar:$palette2 \
+        --color=spinner:$palette2 \
+        --color=header:$palette2 \
+        --color=info:$palette2"
+}
+setup_fzf
+unset -f setup_fzf
