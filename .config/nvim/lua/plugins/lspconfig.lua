@@ -5,6 +5,9 @@ local servers = {
   phpactor = {},
   denols = {},
   jedi_language_server = {},
+  ruff = {},
+  vtsls = {},
+  eslint = {},
 }
 
 local tools = {
