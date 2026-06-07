@@ -30,5 +30,26 @@ if command -v fzf &>/dev/null; then
     set +a
 fi
 
+function setup_fzf() {
+    eval $(\
+        ghostty +show-config |\
+        grep -E '#([A-Za-z]|[0-9])+$' |\
+        sed 's/-/_/; s/palette = /palette/; s/ = /=/; s/^/local /'\
+    )
+
+    export FZF_DEFAULT_OPTS=" \
+        --color=bg:$background,fg:$foreground \
+        --color=bg+:$selection_background,fg+:$selection_foreground \
+        --color=hl:$palette5,hl+:$palette13 \
+        --color=pointer:$background \
+        --color=gutter:$background \
+        --color=scrollbar:$palette2 \
+        --color=spinner:$palette2 \
+        --color=header:$palette2 \
+        --color=info:$palette2"
+}
+setup_fzf
+unset -f setup_fzf
+
 # opencode
 export PATH=/Users/daniel/.opencode/bin:$PATH
