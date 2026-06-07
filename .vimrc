@@ -76,3 +76,7 @@ let g:netrw_liststyle=3
 " Complete menu while typing ex commands
 set wildmenu
 set wildoptions=pum,fuzzy
+
+" If installed using Homebrew on Apple Silicon
+set rtp+=/opt/homebrew/opt/fzf
+nmap <C-p> :FZF<CR>

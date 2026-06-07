@@ -15,6 +15,10 @@ vim.keymap.set("n", "<Leader>n", "<CMD>tabnext<CR>")
 vim.keymap.set("n", "<Leader>p", "<CMD>tabprevious<CR>")
 vim.keymap.set("n", "<Leader>c", "<CMD>tabclose<CR>")
 
+-- quickfix list
+vim.keymap.set("n", "]]", "<CMD>cnext<CR>")
+vim.keymap.set("n", "[[", "<CMD>cprev<CR>")
+
 local o = vim.opt
 
 -- StatusLine
@@ -56,13 +60,6 @@ o.signcolumn = "yes"
 -- Tweak completion menu popup
 o.completeopt = { 'menu', 'menuone', 'popup', 'noinsert', 'fuzzy' }
 
-vim.keymap.set("n", "<Leader>r<Space>", function()
-  package.loaded["timeline"] = nil
-  require("timeline"):f()
-end)
-vim.keymap.set("n", "<Leader><Space>", function()
-  require("timeline"):f()
-end)
-
 require("bootstrap")
 require("colors")
+require("ts")

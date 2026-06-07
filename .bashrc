@@ -29,3 +29,6 @@ if command -v fzf &>/dev/null; then
     eval "$(fzf --bash)"
     set +a
 fi
+
+# opencode
+export PATH=/Users/daniel/.opencode/bin:$PATH
