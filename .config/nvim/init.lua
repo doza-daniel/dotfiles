@@ -58,3 +58,4 @@ o.completeopt = { 'menu', 'menuone', 'popup', 'noinsert', 'fuzzy' }
 
 require("bootstrap")
 require("colors")
+require("ts")
