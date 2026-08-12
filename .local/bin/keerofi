@@ -1,0 +1,4 @@
+DB="/home/daniel/Documents/Bitwarden-Sync.kdbx"
+PASS=$(rofi -dmenu -password -input /dev/null -l 0 -p "Enter password for [$DB]")
+ENTRY=$(echo $PASS | keepassxc-cli ls -R -q $DB | rofi -dmenu -sync -i -p "Choose entry")
+echo $PASS | keepassxc-cli clip -q $DB $ENTRY 0

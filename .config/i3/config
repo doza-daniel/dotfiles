@@ -51,7 +51,7 @@ client.focused          $white        $black      $white  $darkmagenta $darkblue
 # client.background $black
 
 bar {
-        font pango:DejaVu Sans Mono 14
+        font pango:Noto Sans 14
         colors {
                         background $background
                         statusline $foreground
@@ -81,6 +81,8 @@ bindsym $mod+grave              exec --no-startup-id dmenuunicode
 # #---Letter Key Bindings---# #
 bindsym $mod+a                  focus parent
 bindsym $mod+q                  [con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+
+bindsym $mod+p                  exec keerofi
 
 bindsym $mod+r                  exec $term -e files
 bindsym $mod+Shift+r            exec --no-startup-id i3-msg restart
